@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"我的";
+    self.navigationItem.leftBarButtonItem = nil;
     
 }
 

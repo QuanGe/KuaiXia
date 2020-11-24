@@ -10,10 +10,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^HandleBlack)(NSString * _Nullable message);
+
 @interface DTDownloadHandle : NSObject
 
 //下载请求
-+ (void)dt_downloadFileWithUrl:(NSString *)url;
++ (void)dt_downloadFileWithUrl:(NSString *)url block:(HandleBlack)block;
 
 //开始下载
 + (void)startDownList;

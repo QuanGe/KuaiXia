@@ -1,0 +1,21 @@
+//
+//  DTKuaiXiaPrefixHeader.pch
+//  DownloadTool
+//
+//  Created by wangshuailong on 2020/11/24.
+//  Copyright © 2020 DownloadTool. All rights reserved.
+//
+
+#ifndef DTKuaiXiaPrefixHeader_pch
+#define DTKuaiXiaPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <Masonry/Masonry.h>
+#import <YYKit/YYKit.h>
+#import <SDWebImage/SDWebImage.h>
+
+#import "DTMacroHeader.h"
+#import "UIImage+Utility.h"
+
+#endif /* DTKuaiXiaPrefixHeader_pch */
