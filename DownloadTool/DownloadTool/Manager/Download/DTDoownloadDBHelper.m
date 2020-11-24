@@ -86,6 +86,6 @@
         [[NSFileManager defaultManager] createDirectoryAtPath:hidePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    return @".downloadFile";
+    return @".DB";
 }
 @end

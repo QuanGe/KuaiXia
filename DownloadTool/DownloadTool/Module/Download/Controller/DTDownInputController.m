@@ -76,6 +76,7 @@
             NSLog(@"没有找到资源");
         } else {
             NSLog(@"已经找到，URL: %@", videoUrl);
+            weakSelf.inputTextView.text = videoUrl;
         }
     }];
 }
