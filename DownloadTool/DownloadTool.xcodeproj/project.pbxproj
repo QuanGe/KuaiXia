@@ -20,6 +20,14 @@
 		BC436123256C9D76006D1D83 /* DTBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436122256C9D76006D1D83 /* DTBrowserViewController.m */; };
 		BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436126256C9D7E006D1D83 /* DTDownloadViewController.m */; };
 		BC43612B256C9D85006D1D83 /* DTMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43612A256C9D85006D1D83 /* DTMineViewController.m */; };
+		BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436161256CB08D006D1D83 /* DTCommonHelper.m */; };
+		BC436166256CC99A006D1D83 /* DTDownloadSession.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436165256CC99A006D1D83 /* DTDownloadSession.m */; };
+		BC43616A256CCDE8006D1D83 /* DTDownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436169256CCDE8006D1D83 /* DTDownloadObject.m */; };
+		BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43616D256CCE20006D1D83 /* DTDownloadModel.m */; };
+		BC436172256CD033006D1D83 /* DTDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436171256CD033006D1D83 /* DTDownManager.m */; };
+		BC436176256CD726006D1D83 /* DTDoownloadDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436175256CD726006D1D83 /* DTDoownloadDBHelper.m */; };
+		BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436179256CE260006D1D83 /* DTDownloadHandle.m */; };
+		BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43617D256CE2D0006D1D83 /* DTHTTPDownManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +57,22 @@
 		BC436126256C9D7E006D1D83 /* DTDownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownloadViewController.m; sourceTree = "<group>"; };
 		BC436129256C9D85006D1D83 /* DTMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMineViewController.h; sourceTree = "<group>"; };
 		BC43612A256C9D85006D1D83 /* DTMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMineViewController.m; sourceTree = "<group>"; };
+		BC436160256CB08D006D1D83 /* DTCommonHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTCommonHelper.h; sourceTree = "<group>"; };
+		BC436161256CB08D006D1D83 /* DTCommonHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTCommonHelper.m; sourceTree = "<group>"; };
+		BC436164256CC99A006D1D83 /* DTDownloadSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownloadSession.h; sourceTree = "<group>"; };
+		BC436165256CC99A006D1D83 /* DTDownloadSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownloadSession.m; sourceTree = "<group>"; };
+		BC436168256CCDE8006D1D83 /* DTDownloadObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownloadObject.h; sourceTree = "<group>"; };
+		BC436169256CCDE8006D1D83 /* DTDownloadObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownloadObject.m; sourceTree = "<group>"; };
+		BC43616C256CCE20006D1D83 /* DTDownloadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownloadModel.h; sourceTree = "<group>"; };
+		BC43616D256CCE20006D1D83 /* DTDownloadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownloadModel.m; sourceTree = "<group>"; };
+		BC436170256CD033006D1D83 /* DTDownManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownManager.h; sourceTree = "<group>"; };
+		BC436171256CD033006D1D83 /* DTDownManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownManager.m; sourceTree = "<group>"; };
+		BC436174256CD726006D1D83 /* DTDoownloadDBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDoownloadDBHelper.h; sourceTree = "<group>"; };
+		BC436175256CD726006D1D83 /* DTDoownloadDBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDoownloadDBHelper.m; sourceTree = "<group>"; };
+		BC436178256CE260006D1D83 /* DTDownloadHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownloadHandle.h; sourceTree = "<group>"; };
+		BC436179256CE260006D1D83 /* DTDownloadHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownloadHandle.m; sourceTree = "<group>"; };
+		BC43617C256CE2D0006D1D83 /* DTHTTPDownManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHTTPDownManager.h; sourceTree = "<group>"; };
+		BC43617D256CE2D0006D1D83 /* DTHTTPDownManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHTTPDownManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +127,8 @@
 			children = (
 				BC43610E256C9CCF006D1D83 /* AppDelegate */,
 				BC4360FF256C9C89006D1D83 /* Define */,
-				BC4360FE256C9C89006D1D83 /* Libs */,
+				BC43615A256CAFBD006D1D83 /* Helper */,
+				BC4360FE256C9C89006D1D83 /* Utility */,
 				BC4360FD256C9C89006D1D83 /* Manager */,
 				BC4360FC256C9C89006D1D83 /* Model */,
 				BC43610D256C9C89006D1D83 /* UICommon */,
@@ -126,17 +151,17 @@
 		BC4360FD256C9C89006D1D83 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				BC4360F8256BDE34006D1D83 /* DTGetVideoUrlHandle.h */,
-				BC4360F9256BDE34006D1D83 /* DTGetVideoUrlHandle.m */,
+				BC43615E256CB005006D1D83 /* Download */,
+				BC43615C256CAFF6006D1D83 /* GetUrlHandle */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		BC4360FE256C9C89006D1D83 /* Libs */ = {
+		BC4360FE256C9C89006D1D83 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Libs;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		BC4360FF256C9C89006D1D83 /* Define */ = {
@@ -303,6 +328,45 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		BC43615A256CAFBD006D1D83 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BC436160256CB08D006D1D83 /* DTCommonHelper.h */,
+				BC436161256CB08D006D1D83 /* DTCommonHelper.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		BC43615C256CAFF6006D1D83 /* GetUrlHandle */ = {
+			isa = PBXGroup;
+			children = (
+				BC4360F8256BDE34006D1D83 /* DTGetVideoUrlHandle.h */,
+				BC4360F9256BDE34006D1D83 /* DTGetVideoUrlHandle.m */,
+			);
+			path = GetUrlHandle;
+			sourceTree = "<group>";
+		};
+		BC43615E256CB005006D1D83 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+				BC436164256CC99A006D1D83 /* DTDownloadSession.h */,
+				BC436165256CC99A006D1D83 /* DTDownloadSession.m */,
+				BC43616C256CCE20006D1D83 /* DTDownloadModel.h */,
+				BC43616D256CCE20006D1D83 /* DTDownloadModel.m */,
+				BC436174256CD726006D1D83 /* DTDoownloadDBHelper.h */,
+				BC436175256CD726006D1D83 /* DTDoownloadDBHelper.m */,
+				BC436168256CCDE8006D1D83 /* DTDownloadObject.h */,
+				BC436169256CCDE8006D1D83 /* DTDownloadObject.m */,
+				BC43617C256CE2D0006D1D83 /* DTHTTPDownManager.h */,
+				BC43617D256CE2D0006D1D83 /* DTHTTPDownManager.m */,
+				BC436170256CD033006D1D83 /* DTDownManager.h */,
+				BC436171256CD033006D1D83 /* DTDownManager.m */,
+				BC436178256CE260006D1D83 /* DTDownloadHandle.h */,
+				BC436179256CE260006D1D83 /* DTDownloadHandle.m */,
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -420,11 +484,19 @@
 				BC436112256C9D17006D1D83 /* DTNavigationController.m in Sources */,
 				BC43611F256C9D67006D1D83 /* DTHomeViewController.m in Sources */,
 				BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */,
+				BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */,
 				BC43611B256C9D42006D1D83 /* DTBaseViewController.m in Sources */,
 				BC436123256C9D76006D1D83 /* DTBrowserViewController.m in Sources */,
+				BC436176256CD726006D1D83 /* DTDoownloadDBHelper.m in Sources */,
 				BC4360FA256BDE34006D1D83 /* DTGetVideoUrlHandle.m in Sources */,
+				BC436166256CC99A006D1D83 /* DTDownloadSession.m in Sources */,
+				BC43616A256CCDE8006D1D83 /* DTDownloadObject.m in Sources */,
+				BC436172256CD033006D1D83 /* DTDownManager.m in Sources */,
+				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
 				BC436117256C9D2A006D1D83 /* DTTabBarController.m in Sources */,
 				BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */,
+				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,
+				BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */,
 				BC43612B256C9D85006D1D83 /* DTMineViewController.m in Sources */,
 				BC1FBDFF2564B0B300E89C37 /* main.m in Sources */,
 			);
