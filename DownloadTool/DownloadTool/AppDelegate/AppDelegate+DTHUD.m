@@ -14,7 +14,7 @@
 - (void)setupHUD{
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeBlack];
     [SVProgressHUD setBackgroundColor:[UIColor blackColor]];
-    [SVProgressHUD setForegroundColor:DTRGB(90, 153, 237)];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setImageViewSize:CGSizeZero];
 }
 
