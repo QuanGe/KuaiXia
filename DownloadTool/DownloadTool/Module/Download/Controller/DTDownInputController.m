@@ -70,9 +70,12 @@
 //根据连接获取地址
 - (void)clickWebButton{
     [self.view endEditing:YES];
+    [DTProgressHUDHelper show];
     
     __weak __typeof(self) weakSelf = self;
     [[DTGetVideoUrlHandle shared] getVideoUrlWithUrl:self.inputTextView.text completaion:^(NSString * _Nullable videoUrl) {
+        [DTProgressHUDHelper dissMiss];
+        
         if (videoUrl.length == 0) {
             [DTProgressHUDHelper showMessage:@"没有找到资源"];
         } else {
@@ -85,7 +88,10 @@
 
 #pragma mark - Download
 - (void)startDownloadWithUrl:(NSString*)url{
+    [DTProgressHUDHelper show];
+    
     [DTDownloadHandle dt_downloadFileWithUrl:url block:^(NSString * _Nullable message) {
+        [DTProgressHUDHelper dissMiss];
         [DTProgressHUDHelper showMessage:message];
     }];
 }
