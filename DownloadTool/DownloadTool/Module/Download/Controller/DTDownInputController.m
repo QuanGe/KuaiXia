@@ -54,6 +54,7 @@
     [self.view endEditing:YES];
 }
 
+
 #pragma mark - Click
 - (void)clickCloseButton{
     [self.view endEditing:YES];
@@ -73,20 +74,29 @@
     __weak __typeof(self) weakSelf = self;
     [[DTGetVideoUrlHandle shared] getVideoUrlWithUrl:self.inputTextView.text completaion:^(NSString * _Nullable videoUrl) {
         if (videoUrl.length == 0) {
-            NSLog(@"没有找到资源");
+            [DTProgressHUDHelper showMessage:@"没有找到资源"];
         } else {
-            NSLog(@"已经找到，URL: %@", videoUrl);
             weakSelf.inputTextView.text = videoUrl;
+            [DTProgressHUDHelper showMessage:@"资源已找到"];
         }
     }];
 }
 
+
 #pragma mark - Download
 - (void)startDownloadWithUrl:(NSString*)url{
     [DTDownloadHandle dt_downloadFileWithUrl:url block:^(NSString * _Nullable message) {
-        NSLog(@"message ==> %@", message);
+        [DTProgressHUDHelper showMessage:message];
     }];
 }
+
+
+
+
+
+
+
+
 
 #pragma mark - lazy
 - (UITextView *)inputTextView{

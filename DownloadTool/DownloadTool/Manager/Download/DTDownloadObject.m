@@ -53,7 +53,7 @@
 /**开始下载*/
 - (void)startDownload{
     //判断是否已经下载完
-    if (self.downloadStatus == WWSLDownLoad_Complete) {
+    if (self.downloadStatus == DTWSLDownLoad_Complete) {
         return;
     }
     
@@ -83,14 +83,14 @@
 /**暂停下载*/
 - (void)pauseDownload{
     //判断是否下载完成
-    if (self.downloadStatus == WWSLDownLoad_Complete) {
+    if (self.downloadStatus == DTWSLDownLoad_Complete) {
         return;
     }
     //取消下载
     [self.downloadTask cancelDownload];
     
     //修改状态
-    self.downModel.downloadStatus = WWSLDownLoad_Pause;
+    self.downModel.downloadStatus = DTWSLDownLoad_Pause;
     self.downModel.downloadAlreadySize = [self.downloadTask currentFileSize];
     [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
     
@@ -112,17 +112,17 @@
     }
     
     //判断状态是否完成
-    if (self.downModel.downloadTotleSize && self.downModel.downloadAlreadySize == self.downModel.downloadTotleSize && self.downModel.downloadStatus != WWSLDownLoad_Pause) {
-        self.downModel.downloadStatus = WWSLDownLoad_Complete;
+    if (self.downModel.downloadTotleSize && self.downModel.downloadAlreadySize == self.downModel.downloadTotleSize && self.downModel.downloadStatus != DTWSLDownLoad_Pause) {
+        self.downModel.downloadStatus = DTWSLDownLoad_Complete;
     } else {
-        self.downModel.downloadStatus = WWSLDownLoad_Loading;
+        self.downModel.downloadStatus = DTWSLDownLoad_Loading;
     }
     
     //更新数据
     [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
     
     //判断是否正在下载
-    return self.downModel.downloadStatus == WWSLDownLoad_Loading;
+    return self.downModel.downloadStatus == DTWSLDownLoad_Loading;
 }
 
 //创建下载
@@ -134,7 +134,7 @@
     //根据url查找是否已经存在，没有就新建
     DTDownloadModel *model = [[DTDoownloadDBHelper sharedDB] getSelModelUrl:self.downloadUrl];
     if (model) {
-        model.downloadStatus = WWSLDownLoad_Pause;
+        model.downloadStatus = DTWSLDownLoad_Pause;
         model.downloadCookie = self.cookie;
     } else {
         //创建新的
@@ -153,11 +153,11 @@
 }
 
 //获取当前的状态
-- (WWSLDownLoadStatus)downloadStatus {
+- (DTWSLDownLoadStatus)downloadStatus {
     if (self.downModel) {
         return self.downModel.downloadStatus;
     } else {
-        return WWSLDownLoad_Pause;
+        return DTWSLDownLoad_Pause;
     }
 }
 
@@ -166,7 +166,7 @@
 - (void)didReceiveRespond:(NSURLSessionDataTask *)task withRespondSize:(long long)fileSize{
     self.fileTotalSize = fileSize;
     self.downModel.downloadTotleSize = fileSize;
-    self.downModel.downloadStatus = WWSLDownLoad_Loading;
+    self.downModel.downloadStatus = DTWSLDownLoad_Loading;
     
     [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
 }
@@ -178,7 +178,7 @@
 }
 //失败
 - (void)failedDownload:(NSURLSessionTask *)task withFileSize:(long long)fileSize{
-    self.downModel.downloadStatus = WWSLDownLoad_Failed;
+    self.downModel.downloadStatus = DTWSLDownLoad_Failed;
     self.downModel.downloadAlreadySize = fileSize;
     [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
     
@@ -221,7 +221,7 @@
             
             //更新状态
             self.downModel.downloadAlreadySize = self.fileTotalSize;
-            self.downModel.downloadStatus = WWSLDownLoad_Complete;
+            self.downModel.downloadStatus = DTWSLDownLoad_Complete;
             self.downModel.downloadSavePath = [NSString stringWithFormat:@"%@%@", newPath, self.fileName];
             [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
             

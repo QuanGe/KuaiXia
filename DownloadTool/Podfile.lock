@@ -31,6 +31,7 @@ PODS:
     - SDWebImage/Core (= 5.9.4)
   - SDWebImage/Core (5.9.4)
   - SSKeychain (1.4.1)
+  - SVProgressHUD (2.2.5)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
   - YYKit (1.0.9):
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - SDCycleScrollView
   - SDWebImage
   - SSKeychain
+  - SVProgressHUD
   - YTKKeyValueStore
   - YYKit
 
@@ -61,6 +63,7 @@ SPEC REPOS:
     - SDCycleScrollView
     - SDWebImage
     - SSKeychain
+    - SVProgressHUD
     - YTKKeyValueStore
     - YYKit
 
@@ -74,9 +77,10 @@ SPEC CHECKSUMS:
   SDCycleScrollView: b3c9a5ed840c771c4938978174c7c9d9feefeb96
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SSKeychain: 55cc80f66f5c73da827e3077f02e43528897db41
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 92d04d67ea31e178bb89229536276011f81fd8c5
+PODFILE CHECKSUM: cda37b9879f9e58a1e1d69c1f872618af157bca0
 
 COCOAPODS: 1.10.0

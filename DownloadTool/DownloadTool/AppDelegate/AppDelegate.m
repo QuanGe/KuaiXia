@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+DTHUD.h"
 #import "DTTabBarController.h"
 
 @interface AppDelegate ()
@@ -18,6 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [self setupHUD];
     [self setupCreatWindow];
     
     return YES;

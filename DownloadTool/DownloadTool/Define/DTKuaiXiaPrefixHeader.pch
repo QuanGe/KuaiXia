@@ -16,6 +16,7 @@
 #import <SDWebImage/SDWebImage.h>
 
 #import "DTMacroHeader.h"
+#import "DTProgressHUDHelper.h"
 #import "UIImage+Utility.h"
 
 #endif /* DTKuaiXiaPrefixHeader_pch */

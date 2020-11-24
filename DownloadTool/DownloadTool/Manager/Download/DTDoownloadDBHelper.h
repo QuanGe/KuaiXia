@@ -15,15 +15,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedDB;
 
-//获取全部
+/**获取全部*/
 - (NSArray *)getAllItems;
-//删除全部
+/**获取下载完的*/
+- (NSArray *)getSucessItems;
+/**获取非下载完的*/
+- (NSArray *)getLoadingItems;
+/**删除全部*/
 - (void)deleteAllItem;
-//保存
+/**保存*/
 - (void)saveItem:(DTDownloadModel *)item;
-//删除
+/**删除*/
 - (void)deleteItem:(DTDownloadModel *)item;
-//获取制定的
+/**根据url获取model*/
 - (DTDownloadModel*)getSelModelUrl:(NSString*)downmodelUrl;
 
 @end

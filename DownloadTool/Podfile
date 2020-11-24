@@ -16,5 +16,6 @@ target 'DownloadTool' do
  pod 'FMDB'							            #数据库
  pod 'YTKKeyValueStore'				      #数据库
  pod 'SSKeychain'					          #钥匙串
+ pod 'SVProgressHUD'                #loading
 
 end

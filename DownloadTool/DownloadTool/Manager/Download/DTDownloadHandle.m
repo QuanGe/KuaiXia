@@ -22,7 +22,7 @@
 + (void)dt_downloadFileWithUrl:(NSString *)url block:(HandleBlack)block{
     if (url.length == 0) {
         if (block) {
-            block(@"地址错误");
+            block(@"地址错误,请查看地址是否正确");
         }
         return;
     }
@@ -39,14 +39,15 @@
     [[DTHTTPDownManager shareInstance] headRequestWithUrl:url complation:^(NSError * _Nullable error, id  _Nullable responseObject, NSURLResponse * _Nullable response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
-                NSLog(@"下载失败");
+                if (block) {
+                    block(@"下载失败,请查看地址是否正确");
+                }
             } else {
-                //从response中获取
-                NSString *mimeType = [response MIMEType];
-                [DTDownloadHandle doneDownloadWithUrl:url response:response];
-                
+                //开始下载
+                [DTDownloadHandle doneDownloadWithUrl:url response:response block:block];
                 
 //                //判断类型
+//                NSString *mimeType = [response MIMEType];
 //                if ([[DTDownloadHandle dt_downloadMIMETypes] containsObject:mimeType]) {
 //                    [DTDownloadHandle doneDownloadWithUrl:url response:response];
 //
@@ -65,7 +66,7 @@
 }
 
 //是下载链接
-+ (void)doneDownloadWithUrl:(NSString*)url response:(NSURLResponse*)response{
++ (void)doneDownloadWithUrl:(NSString*)url response:(NSURLResponse*)response block:(HandleBlack)block{
     //从response中获取
     NSString *mimeType = [response MIMEType];
 
@@ -87,11 +88,17 @@
     
     //判断是否下载
     DTDownloadObject *obj = [[DTDownManager shareInstance] findDownloadObjectByUrl:url];
-    if (obj.downloadStatus == WWSLDownLoad_Loading) {
-        NSLog(@"文件正在下载");
+    NSString *msg = @"";
+    if (obj.downloadStatus == DTWSLDownLoad_Loading) {
+        msg = @"文件正在下载";
+        
     } else {
-        NSLog(@"%@-开始下载", fileName);
+        msg = [NSString stringWithFormat:@"%@-开始下载", fileName];
         [[DTDownManager shareInstance] startDowload:url withSuggestionName:fileName withMIMEType:mimeType cookie:cookieStr];
+    }
+    //回调
+    if (block) {
+        block(msg);
     }
 }
 
@@ -135,7 +142,7 @@
 + (void)startDownList{
     NSArray *list = [[DTDoownloadDBHelper sharedDB] getAllItems];
     for (DTDownloadModel *model in list) {
-        if (model.downloadStatus != WWSLDownLoad_Complete) {
+        if (model.downloadStatus != DTWSLDownLoad_Complete) {
             NSLog(@"开始下载: %@", model.downloadFileName);
             [[DTDownManager shareInstance] startDowload:model.downloadUrl withSuggestionName:model.downloadFileName withMIMEType:model.downloadType cookie:model.downloadCookie];
         }

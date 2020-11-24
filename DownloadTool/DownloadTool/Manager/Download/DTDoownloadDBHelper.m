@@ -69,6 +69,45 @@
     return arrM.copy;
 }
 
+
+/**获取下载完的*/
+- (NSArray *)getSucessItems{
+    NSArray *arr = [_store getAllItemsFromTable:TBName_DownloadHistory];
+    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:arr];
+    NSArray *reverseArr = [[tmpArr reverseObjectEnumerator] allObjects];
+    
+    NSMutableArray *arrM = [NSMutableArray array];
+    for (YTKKeyValueItem *yyItem in reverseArr) {
+        NSDictionary *obj = yyItem.itemObject;
+        DTDownloadModel *item = [DTDownloadModel modelWithDictionary:obj];
+        if (item.downloadStatus == DTWSLDownLoad_Complete) {
+            [arrM addObject:item];
+        }
+    }
+    return arrM.copy;
+}
+
+/**获取非下载完的*/
+- (NSArray *)getLoadingItems{
+    NSArray *arr = [_store getAllItemsFromTable:TBName_DownloadHistory];
+    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:arr];
+    NSArray *reverseArr = [[tmpArr reverseObjectEnumerator] allObjects];
+    
+    
+    NSMutableArray *arrM = [NSMutableArray array];
+    for (YTKKeyValueItem *yyItem in reverseArr) {
+        NSDictionary *obj = yyItem.itemObject;
+        DTDownloadModel *item = [DTDownloadModel modelWithDictionary:obj];
+        if (item.downloadStatus != DTWSLDownLoad_Complete) {
+            [arrM addObject:item];
+        }
+    }
+    
+    return arrM.copy;
+}
+
+
+
 //获取制定的
 - (DTDownloadModel*)getSelModelUrl:(NSString*)downmodelUrl{
     NSDictionary *dict = [_store getObjectById:downmodelUrl fromTable:TBName_DownloadHistory];
@@ -78,14 +117,15 @@
 #pragma mark - Helper
 //下载文件夹路径
 - (NSString *)hasHideFile{
+    NSString *name = @".DB";
     NSString *path_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    NSString *hidePath = [path_document stringByAppendingPathComponent:@".DB"];
+    NSString *hidePath = [path_document stringByAppendingPathComponent:name];
     
     //创建一个隐藏的文件夹
     if ([[NSFileManager defaultManager] fileExistsAtPath:hidePath] == NO) {
         [[NSFileManager defaultManager] createDirectoryAtPath:hidePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    return @".DB";
+    return name;
 }
 @end

@@ -63,7 +63,7 @@
     DTDownloadObject *downObj = [self findDownloadObjectByUrl:downloadUrl];
     if (downObj) {
         //判断下载状态
-        if (downObj.downloadStatus == WWSLDownLoad_Loading) {
+        if (downObj.downloadStatus == DTWSLDownLoad_Loading) {
             return;
         }
     } else {

@@ -32,6 +32,9 @@
 		BC43618C256CFBDE006D1D83 /* DTDownloadTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43618B256CFBDE006D1D83 /* DTDownloadTableCell.m */; };
 		BC436194256D0210006D1D83 /* DTDownInputController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436193256D0210006D1D83 /* DTDownInputController.m */; };
 		BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436198256D0467006D1D83 /* UIImage+Utility.m */; };
+		BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361AC256D2AE3006D1D83 /* DTProgressHUDHelper.m */; };
+		BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B0256D2BC2006D1D83 /* AppDelegate+DTHUD.m */; };
+		BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,12 @@
 		BC436193256D0210006D1D83 /* DTDownInputController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownInputController.m; sourceTree = "<group>"; };
 		BC436197256D0467006D1D83 /* UIImage+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utility.h"; sourceTree = "<group>"; };
 		BC436198256D0467006D1D83 /* UIImage+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utility.m"; sourceTree = "<group>"; };
+		BC4361AB256D2AE3006D1D83 /* DTProgressHUDHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTProgressHUDHelper.h; sourceTree = "<group>"; };
+		BC4361AC256D2AE3006D1D83 /* DTProgressHUDHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTProgressHUDHelper.m; sourceTree = "<group>"; };
+		BC4361AF256D2BC2006D1D83 /* AppDelegate+DTHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+DTHUD.h"; sourceTree = "<group>"; };
+		BC4361B0256D2BC2006D1D83 /* AppDelegate+DTHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DTHUD.m"; sourceTree = "<group>"; };
+		BC4361B3256D2DE1006D1D83 /* DTDownListTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownListTableCell.h; sourceTree = "<group>"; };
+		BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownListTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +285,8 @@
 			children = (
 				BC43618A256CFBDE006D1D83 /* DTDownloadTableCell.h */,
 				BC43618B256CFBDE006D1D83 /* DTDownloadTableCell.m */,
+				BC4361B3256D2DE1006D1D83 /* DTDownListTableCell.h */,
+				BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -320,6 +331,8 @@
 			children = (
 				BC1FBDEC2564B0B000E89C37 /* AppDelegate.h */,
 				BC1FBDED2564B0B000E89C37 /* AppDelegate.m */,
+				BC4361AF256D2BC2006D1D83 /* AppDelegate+DTHUD.h */,
+				BC4361B0256D2BC2006D1D83 /* AppDelegate+DTHUD.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -356,6 +369,8 @@
 			children = (
 				BC436160256CB08D006D1D83 /* DTCommonHelper.h */,
 				BC436161256CB08D006D1D83 /* DTCommonHelper.m */,
+				BC4361AB256D2AE3006D1D83 /* DTProgressHUDHelper.h */,
+				BC4361AC256D2AE3006D1D83 /* DTProgressHUDHelper.m */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -521,6 +536,7 @@
 				BC436194256D0210006D1D83 /* DTDownInputController.m in Sources */,
 				BC43611B256C9D42006D1D83 /* DTBaseViewController.m in Sources */,
 				BC436123256C9D76006D1D83 /* DTBrowserViewController.m in Sources */,
+				BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */,
 				BC436176256CD726006D1D83 /* DTDoownloadDBHelper.m in Sources */,
 				BC4360FA256BDE34006D1D83 /* DTGetVideoUrlHandle.m in Sources */,
 				BC436166256CC99A006D1D83 /* DTDownloadSession.m in Sources */,
@@ -532,8 +548,10 @@
 				BC436188256CFB75006D1D83 /* DTDownListController.m in Sources */,
 				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,
 				BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */,
+				BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */,
 				BC43612B256C9D85006D1D83 /* DTMineViewController.m in Sources */,
 				BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */,
+				BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */,
 				BC1FBDFF2564B0B300E89C37 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

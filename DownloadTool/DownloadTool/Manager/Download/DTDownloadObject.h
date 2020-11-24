@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class DTDownManager;
 @interface DTDownloadObject : NSObject
 
-@property (nonatomic, readonly) WWSLDownLoadStatus downloadStatus;  //下载状态
+@property (nonatomic, readonly) DTWSLDownLoadStatus downloadStatus;  //下载状态
 @property (nonatomic, strong  ) NSString          *fileName;        //文件名字
 @property (nonatomic, strong  ) NSString          *downloadUrl;     //下载url
 

@@ -10,11 +10,13 @@
 #import <WebKit/WebKit.h>
 
 static NSString *khandleVideoInfo = @"handleVideoInfo";
+#define MaxCount    3   //嗅探的最大次数
 
 @interface DTGetVideoUrlHandle() <WKUIDelegate, WKScriptMessageHandler>
 
 @property (nonatomic, strong) WKWebView *contentWebView;
 @property (nonatomic, copy)   CompletaionBlack getBlock;
+@property (nonatomic, assign) NSInteger sniffingCount;      //嗅探的次数
 
 @end
 
@@ -31,6 +33,7 @@ static NSString *khandleVideoInfo = @"handleVideoInfo";
 
 - (void)getVideoUrlWithUrl:(NSString*)url completaion:(CompletaionBlack)completaion{
     self.getBlock = completaion;
+    self.sniffingCount = 1;
     
     [self.contentWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
@@ -42,8 +45,24 @@ static NSString *khandleVideoInfo = @"handleVideoInfo";
     
     //获取视频
     if ([name isEqualToString:khandleVideoInfo]) {
-        if (self.getBlock) {
-            self.getBlock(message.body);
+        NSString *body = message.body;
+        if (body.length > 0) {
+            //判断最大次数
+            if (self.sniffingCount >= MaxCount) {
+                self.sniffingCount = 1;
+                //返回结果
+                if (self.getBlock) {
+                    self.getBlock(message.body);
+                }
+            } else {
+                //再次去拿数据,第一次拿到的有可能不是连接
+                [self.contentWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:message.body]]];
+                self.sniffingCount++;
+            }
+        } else {
+            if (self.getBlock) {
+                self.getBlock(body);
+            }
         }
     }
 }

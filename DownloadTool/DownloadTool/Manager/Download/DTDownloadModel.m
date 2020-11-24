@@ -18,7 +18,7 @@
     model.downloadSavePath      = @"";
     model.downloadFileName      = @"";
     model.createdDate           = [[NSDate date] timeIntervalSince1970];
-    model.downloadStatus        = WWSLDownLoad_Pause;
+    model.downloadStatus        = DTWSLDownLoad_Pause;
     model.downloadAlreadySize   = 0;
     return model;
 }
