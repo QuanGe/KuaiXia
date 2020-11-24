@@ -147,9 +147,9 @@
         _downButton.layer.cornerRadius = 24;
         _downButton.layer.masksToBounds = YES;
         _downButton.layer.borderWidth = 0.5;
-        _downButton.layer.borderColor = [UIColor blueColor].CGColor;
+        _downButton.layer.borderColor = kBaseColor.CGColor;
         [_downButton setTitle:@"查看完成文件" forState:UIControlStateNormal];
-        [_downButton setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_downButton setTitleColor:kBaseColor forState:UIControlStateNormal];
         [_downButton addTarget:self action:@selector(clickDownButton) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:_downButton];
     }
@@ -160,7 +160,7 @@
     if (!_addButton) {
         _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _addButton.titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
-        _addButton.backgroundColor = [UIColor blueColor];
+        _addButton.backgroundColor = kBaseColor;
         _addButton.layer.cornerRadius = 24;
         _addButton.layer.masksToBounds = YES;
         [_addButton setTitle:@"+ 创建下载" forState:UIControlStateNormal];

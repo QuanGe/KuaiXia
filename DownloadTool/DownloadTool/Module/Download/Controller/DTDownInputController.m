@@ -110,7 +110,7 @@
         _inputTextView = [[UITextView alloc] init];
         _inputTextView.layer.cornerRadius = 10;
         _inputTextView.layer.masksToBounds = YES;
-        _inputTextView.layer.borderColor = [UIColor blueColor].CGColor;
+        _inputTextView.layer.borderColor = kBaseColor.CGColor;
         _inputTextView.layer.borderWidth = 0.5;
         [self.view addSubview:_inputTextView];
     }
@@ -121,7 +121,7 @@
     if (!_downloadButton) {
         _downloadButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _downloadButton.titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
-        _downloadButton.backgroundColor = [UIColor blueColor];
+        _downloadButton.backgroundColor = kBaseColor;
         _downloadButton.layer.cornerRadius = 24;
         _downloadButton.layer.masksToBounds = YES;
         [_downloadButton setTitle:@"开始下载" forState:UIControlStateNormal];
@@ -136,7 +136,7 @@
     if (!_webButton) {
         _webButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _webButton.titleLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
-        _webButton.backgroundColor = [UIColor blueColor];
+        _webButton.backgroundColor = kBaseColor;
         _webButton.layer.cornerRadius = 24;
         _webButton.layer.masksToBounds = YES;
         [_webButton setTitle:@"资源嗅探" forState:UIControlStateNormal];

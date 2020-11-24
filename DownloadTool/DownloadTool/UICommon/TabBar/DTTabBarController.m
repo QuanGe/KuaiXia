@@ -29,9 +29,12 @@
 
 #pragma mark - ADD
 - (void)addAllChildViewController{
-    [self addChildViewController:[[DTHomeViewController alloc] init] title:@"首页" imageNamed:@"" selectImage:@""];
-    [self addChildViewController:[[DTDownloadViewController alloc] init] title:@"传输" imageNamed:@"" selectImage:@""];
-    [self addChildViewController:[[DTMineViewController alloc] init] title:@"我的" imageNamed:@"" selectImage:@""];
+    [self addChildViewController:[[DTHomeViewController alloc] init] title:@"首页"
+                      imageNamed:@"tabBar_home" selectImage:@"tabBar_home_sel"];
+    [self addChildViewController:[[DTDownloadViewController alloc] init] title:@"传输"
+                      imageNamed:@"tabBar_down" selectImage:@"tabBar_down_sel"];
+    [self addChildViewController:[[DTMineViewController alloc] init] title:@"我的"
+                      imageNamed:@"tabBar_mine" selectImage:@"tabBar_mine_sel"];
 }
 
 - (void)addChildViewController:(UIViewController *)vc title:(NSString *)title imageNamed:(NSString *)imageNamed selectImage:(NSString *)selImgNamed{
@@ -46,7 +49,7 @@
     UIImage *imageHome = [UIImage imageNamed:selectedImage];
     imageHome = [imageHome imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     [controller.tabBarItem setSelectedImage:imageHome];
-    NSDictionary *dictHome = [NSDictionary dictionaryWithObject:[UIColor redColor] forKey:NSForegroundColorAttributeName];
+    NSDictionary *dictHome = [NSDictionary dictionaryWithObject:DTRGB(58, 68, 219) forKey:NSForegroundColorAttributeName];
     [controller.tabBarItem setTitleTextAttributes:dictHome forState:UIControlStateSelected];
 }
 
