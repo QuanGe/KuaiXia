@@ -1,0 +1,12 @@
+${PODS_ROOT}/Target Support Files/Pods-DownloadTool/Pods-DownloadTool-frameworks.sh
+${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
+${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework
+${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework
+${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
+${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework
+${BUILT_PRODUCTS_DIR}/RealReachability/RealReachability.framework
+${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SSKeychain/SSKeychain.framework
+${BUILT_PRODUCTS_DIR}/YTKKeyValueStore/YTKKeyValueStore.framework
+${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework

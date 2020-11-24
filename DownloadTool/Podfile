@@ -1,0 +1,20 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'DownloadTool' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # Pods for DownloadTool
+  
+ pod 'AFNetworking'                 #网络框架
+ pod 'Masonry'                      #自动约束
+ pod 'MJRefresh'                    #下拉刷新
+ pod 'YYKit'                        #工具类
+ pod 'SDWebImage'                   #图片下载框架
+ pod 'SDCycleScrollView'            #轮播图
+ pod 'FLAnimatedImage'              #GIF动画播放
+ pod 'RealReachability'             #网络实时检测
+ pod 'FMDB'							            #数据库
+ pod 'YTKKeyValueStore'				      #数据库
+ pod 'SSKeychain'					          #钥匙串
+
+end
