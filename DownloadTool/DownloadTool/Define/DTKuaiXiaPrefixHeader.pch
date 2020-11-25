@@ -18,5 +18,6 @@
 #import "DTMacroHeader.h"
 #import "DTProgressHUDHelper.h"
 #import "UIImage+Utility.h"
+#import "NSString+Utility.h"
 
 #endif /* DTKuaiXiaPrefixHeader_pch */

@@ -9,8 +9,10 @@
 #import "DTSearchViewController.h"
 #import "DTSearchToolView.h"
 #import "DTSearchHistoryView.h"
+#import "DTSeatchHistoryDBHelper.h"
+#import "DTCommonHelper.h"
 
-@interface DTSearchViewController () <DTSearchToolViewDelegate>
+@interface DTSearchViewController () <DTSearchToolViewDelegate, DTSearchHistoryViewDelegate>
 
 @property (nonatomic, strong) DTSearchToolView *searchToolView;
 @property (nonatomic, strong) DTSearchHistoryView *historyView;
@@ -37,14 +39,52 @@
     }];
 }
 
+#pragma mark - Click
+- (void)clickCloseButtonAnimation:(BOOL)animation{
+    if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    } else {
+        [self.navigationController popViewControllerAnimated:animation];
+    }
+}
+
+//打开链接
+- (void)openUrlWithUrl:(NSString*)urlString{
+    //判断是否为空
+    urlString = [urlString stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if (urlString.length == 0) {
+        return;
+    }
+    
+    //保存历史记录
+    DTSeatchHistoryModel *model = [DTSeatchHistoryModel defaultHistoryModel];
+    model.title = urlString;
+    
+    //判断是否为url
+    if ([DTCommonHelper isUrl:urlString] == NO) {
+        urlString = [NSString stringWithFormat:@"https://m.baidu.com/s?word=%@", [urlString encodeString]];
+    }
+    
+    //保存历史记录
+    [[DTSeatchHistoryDBHelper sharedDB] saveItem:model];
+    
+    //打开url
+}
 
 #pragma mark - DTSearchToolViewDelegate
 - (void)cancelInputView:(DTSearchToolView*)toolView{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self clickCloseButtonAnimation:YES];
 }
 //点击完成
 - (void)searchDoneInputText:(NSString *)inputText{
-    NSLog(@"inputText ==> %@", inputText);
+    [self openUrlWithUrl:inputText];
+}
+
+
+#pragma mark - DTSearchHistoryViewDelegate
+//选中历史记录
+- (void)didSelectUrl:(NSString *)url{
+    [self openUrlWithUrl:url];
 }
 
 
@@ -61,6 +101,7 @@
 - (DTSearchHistoryView *)historyView{
     if (!_historyView) {
         _historyView = [[DTSearchHistoryView alloc] init];
+        _historyView.delegate = self;
         [self.view addSubview:_historyView];
     }
     return _historyView;

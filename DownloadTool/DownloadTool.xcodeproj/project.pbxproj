@@ -47,6 +47,9 @@
 		BC4361EF256E4DC5006D1D83 /* DTScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361EE256E4DC5006D1D83 /* DTScanViewController.m */; };
 		BC4361F5256E520D006D1D83 /* DTSearchToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361F4256E520D006D1D83 /* DTSearchToolView.m */; };
 		BC4361F9256E5986006D1D83 /* DTSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361F8256E5986006D1D83 /* DTSearchHistoryView.m */; };
+		BC4361FF256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361FE256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m */; };
+		BC436203256E7A1B006D1D83 /* DTSeatchHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436202256E7A1B006D1D83 /* DTSeatchHistoryModel.m */; };
+		BC436207256E7E5D006D1D83 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436206256E7E5D006D1D83 /* NSString+Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +136,12 @@
 		BC4361F4256E520D006D1D83 /* DTSearchToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSearchToolView.m; sourceTree = "<group>"; };
 		BC4361F7256E5986006D1D83 /* DTSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSearchHistoryView.h; sourceTree = "<group>"; };
 		BC4361F8256E5986006D1D83 /* DTSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSearchHistoryView.m; sourceTree = "<group>"; };
+		BC4361FD256E79A5006D1D83 /* DTSeatchHistoryDBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSeatchHistoryDBHelper.h; sourceTree = "<group>"; };
+		BC4361FE256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSeatchHistoryDBHelper.m; sourceTree = "<group>"; };
+		BC436201256E7A1B006D1D83 /* DTSeatchHistoryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSeatchHistoryModel.h; sourceTree = "<group>"; };
+		BC436202256E7A1B006D1D83 /* DTSeatchHistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSeatchHistoryModel.m; sourceTree = "<group>"; };
+		BC436205256E7E5D006D1D83 /* NSString+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
+		BC436206256E7E5D006D1D83 /* NSString+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +469,8 @@
 			children = (
 				BC436197256D0467006D1D83 /* UIImage+Utility.h */,
 				BC436198256D0467006D1D83 /* UIImage+Utility.m */,
+				BC436205256E7E5D006D1D83 /* NSString+Utility.h */,
+				BC436206256E7E5D006D1D83 /* NSString+Utility.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -539,6 +550,7 @@
 			children = (
 				BC4361DF256E44A4006D1D83 /* Controller */,
 				BC4361E0256E44A4006D1D83 /* View */,
+				BC4361FB256E798D006D1D83 /* DB */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -586,6 +598,17 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		BC4361FB256E798D006D1D83 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361FD256E79A5006D1D83 /* DTSeatchHistoryDBHelper.h */,
+				BC4361FE256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m */,
+				BC436201256E7A1B006D1D83 /* DTSeatchHistoryModel.h */,
+				BC436202256E7A1B006D1D83 /* DTSeatchHistoryModel.m */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -727,13 +750,16 @@
 				BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */,
 				BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */,
 				BC436188256CFB75006D1D83 /* DTDownListController.m in Sources */,
+				BC436203256E7A1B006D1D83 /* DTSeatchHistoryModel.m in Sources */,
 				BC4361F5256E520D006D1D83 /* DTSearchToolView.m in Sources */,
 				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,
+				BC436207256E7E5D006D1D83 /* NSString+Utility.m in Sources */,
 				BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */,
 				BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */,
 				BC4361E8256E44DF006D1D83 /* DTHomeSearchView.m in Sources */,
 				BC43612B256C9D85006D1D83 /* DTMineViewController.m in Sources */,
 				BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */,
+				BC4361FF256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m in Sources */,
 				BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */,
 				BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */,
 				BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */,

@@ -41,7 +41,9 @@
 //保存
 - (void)saveItem:(DTDownloadModel *)item{
     NSDictionary *dic = [item modelToJSONObject];
-    [_store putObject:dic withId:item.downloadUrl intoTable:TBName_DownloadHistory];
+    if (dic && item.downloadUrl.length > 0) {
+        [_store putObject:dic withId:item.downloadUrl intoTable:TBName_DownloadHistory];
+    }
 }
 
 //删除

@@ -145,4 +145,38 @@
     return str;
 }
 
+
+//下载文件夹路径
++(NSString *)hasHideDBFile{
+    NSString *name = @".DB";
+    NSString *path_document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    NSString *hidePath = [path_document stringByAppendingPathComponent:name];
+    
+    //创建一个隐藏的文件夹
+    if ([[NSFileManager defaultManager] fileExistsAtPath:hidePath] == NO) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:hidePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    return name;
+}
+
+
+/**判断是否为url*/
++ (BOOL)isUrl:(NSString*)url{
+    if(url.length < 1)
+        return NO;
+    if (url.length > 4 && [[url substringToIndex:4] isEqualToString:@"www."]) {
+        url = [NSString stringWithFormat:@"http://%@",url];
+    } else {
+        url = url;
+    }
+    
+    NSString *urlRegex = @"(https|http|ftp|rtsp|igmp|file|rtspt|rtspu)://((((25[0-5]|2[0-4]\\d|1?\\d?\\d)\\.){3}(25[0-5]|2[0-4]\\d|1?\\d?\\d))|([0-9a-z_!~*'()-]*\\.?))([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\.([a-z]{2,6})(:[0-9]{1,4})?([a-zA-Z/?_=]*)\\.\\w{1,5}";
+    
+    NSPredicate* urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegex];
+    
+    return [urlTest evaluateWithObject:url];
+}
+
+
 @end

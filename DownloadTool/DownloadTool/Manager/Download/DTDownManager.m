@@ -104,7 +104,7 @@
     NSArray *allKeys = self.downloadObjectes.allKeys;
     for (NSString *key in allKeys) {
         DTDownloadObject *dobj = [self.downloadObjectes objectForKey:key];
-        if (dobj) {
+        if (dobj && dobj.downloadStatus != DTWSLDownLoad_Complete) {
             [dobj pauseDownload];
         }
     }

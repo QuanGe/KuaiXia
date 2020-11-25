@@ -27,6 +27,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**获取数字的MB,GB,KB*/
 + (NSString *)getContentSizeWithTotalSize:(CGFloat)totalSize;
 
+/**下载文件夹路径*/
++ (NSString *)hasHideDBFile;
+
+/**判断是否为url*/
++ (BOOL)isUrl:(NSString*)url;
+
 @end
 
 NS_ASSUME_NONNULL_END

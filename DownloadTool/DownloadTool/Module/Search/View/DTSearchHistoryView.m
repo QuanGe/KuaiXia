@@ -7,6 +7,7 @@
 //
 
 #import "DTSearchHistoryView.h"
+#import "DTSeatchHistoryDBHelper.h"
 
 @interface DTSearchHistoryView() <UITableViewDelegate, UITableViewDataSource>
 
@@ -39,6 +40,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DTSearchHistoryTableCell *cell = [DTSearchHistoryTableCell cellHistoryTableWithTable:tableView];
     
+    cell.itemModel = self.hisyoryList[indexPath.row];
+    
     return cell;
 }
 
@@ -48,6 +51,13 @@
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
     [self endEditing:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DTSeatchHistoryModel *itemModel = self.hisyoryList[indexPath.row];
+    if ([self.delegate respondsToSelector:@selector(didSelectUrl:)]) {
+        [self.delegate didSelectUrl:itemModel.urlString];
+    }
 }
 
 #pragma mark - Lazy
@@ -66,7 +76,7 @@
 
 - (NSArray *)hisyoryList{
     if (!_hisyoryList) {
-        _hisyoryList = [NSArray array];
+        _hisyoryList = [[DTSeatchHistoryDBHelper sharedDB] getAllItems];
     }
     return _hisyoryList;
 }
@@ -80,6 +90,7 @@
 
 @property (nonatomic, strong) UIView *lineView;
 @property (nonatomic, strong) UILabel *textTitleLabel;
+@property (nonatomic, strong) UIImageView *rowImgView;
 
 @end
 
@@ -87,7 +98,7 @@
 @implementation DTSearchHistoryTableCell
 
 + (CGFloat)getHistoryCellHeight{
-    return 70;;
+    return 55;
 }
 
 + (instancetype)cellHistoryTableWithTable:(UITableView*)tableView{
@@ -109,15 +120,29 @@
 
 - (void)setupCellViewUI{
     [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.bottom.left.equalTo(self.contentView);
-        make.height.mas_equalTo(0.5);
+        make.left.equalTo(self.contentView).offset(15);
+        make.right.equalTo(self.contentView).offset(-15);
+        make.bottom.equalTo(self.contentView);
+        make.height.mas_equalTo(1);
+    }];
+    [self.rowImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self.lineView);
+        make.centerY.equalTo(self.contentView);
+        make.width.height.mas_equalTo(16);
     }];
     [self.textTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.lineView);
-        make.centerY.equalTo(self.lineView);
+        make.left.equalTo(self.lineView);
+        make.right.equalTo(self.rowImgView.mas_left).offset(-10);
+        make.centerY.equalTo(self.contentView);
     }];
 }
 
+#pragma mark - Model
+- (void)setItemModel:(DTSeatchHistoryModel *)itemModel{
+    _itemModel = itemModel;
+    
+    self.textTitleLabel.text = itemModel.title;
+}
 
 
 #pragma mark - Lazy
@@ -138,6 +163,14 @@
         [self.contentView addSubview:_textTitleLabel];
     }
     return _textTitleLabel;
+}
+
+- (UIImageView *)rowImgView{
+    if (!_rowImgView) {
+        _rowImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"search_row"]];
+        [self.contentView addSubview:_rowImgView];
+    }
+    return _rowImgView;
 }
 
 @end

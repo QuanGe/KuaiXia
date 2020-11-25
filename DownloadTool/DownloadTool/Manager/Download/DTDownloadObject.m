@@ -90,9 +90,11 @@
     [self.downloadTask cancelDownload];
     
     //修改状态
-    self.downModel.downloadStatus = DTWSLDownLoad_Pause;
-    self.downModel.downloadAlreadySize = [self.downloadTask currentFileSize];
-    [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+    if (self.downModel) {
+        self.downModel.downloadStatus = DTWSLDownLoad_Pause;
+        self.downModel.downloadAlreadySize = [self.downloadTask currentFileSize];
+        [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+    }
     
     //
     self.downloadTask = nil;

@@ -10,11 +10,23 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DTSeatchHistoryModel;
+@protocol DTSearchHistoryViewDelegate <NSObject>
+
+@optional
+- (void)didSelectUrl:(NSString*)url;
+
+@end
+
 @interface DTSearchHistoryView : UIView
+
+@property (nonatomic, weak)   id<DTSearchHistoryViewDelegate> delegate;
 
 @end
 
 @interface DTSearchHistoryTableCell : UITableViewCell
+
+@property (nonatomic, strong) DTSeatchHistoryModel *itemModel;
 
 + (CGFloat)getHistoryCellHeight;
 + (instancetype)cellHistoryTableWithTable:(UITableView*)tableView;
