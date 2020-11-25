@@ -22,6 +22,10 @@
     [self setBaseViewControllerForUI];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleDefault;
+}
+
 //MARK: - 设置导航条
 - (void)setBaseViewControllerForUI{
     

@@ -10,8 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define kSearchViewHeight       (NavigationBarHeight + 10)
-
 @interface DTHomeSearchView : UIView
 
 @property (nonatomic, copy) void(^clickSearchBlock)(void); //点击搜索

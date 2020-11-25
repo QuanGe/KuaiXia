@@ -45,6 +45,8 @@
 		BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361E2256E44BF006D1D83 /* DTSearchViewController.m */; };
 		BC4361E8256E44DF006D1D83 /* DTHomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */; };
 		BC4361EF256E4DC5006D1D83 /* DTScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361EE256E4DC5006D1D83 /* DTScanViewController.m */; };
+		BC4361F5256E520D006D1D83 /* DTSearchToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361F4256E520D006D1D83 /* DTSearchToolView.m */; };
+		BC4361F9256E5986006D1D83 /* DTSearchHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361F8256E5986006D1D83 /* DTSearchHistoryView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +129,10 @@
 		BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeSearchView.m; sourceTree = "<group>"; };
 		BC4361ED256E4DC5006D1D83 /* DTScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTScanViewController.h; sourceTree = "<group>"; };
 		BC4361EE256E4DC5006D1D83 /* DTScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTScanViewController.m; sourceTree = "<group>"; };
+		BC4361F3256E520D006D1D83 /* DTSearchToolView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSearchToolView.h; sourceTree = "<group>"; };
+		BC4361F4256E520D006D1D83 /* DTSearchToolView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSearchToolView.m; sourceTree = "<group>"; };
+		BC4361F7256E5986006D1D83 /* DTSearchHistoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSearchHistoryView.h; sourceTree = "<group>"; };
+		BC4361F8256E5986006D1D83 /* DTSearchHistoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSearchHistoryView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -549,6 +555,10 @@
 		BC4361E0256E44A4006D1D83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361F3256E520D006D1D83 /* DTSearchToolView.h */,
+				BC4361F4256E520D006D1D83 /* DTSearchToolView.m */,
+				BC4361F7256E5986006D1D83 /* DTSearchHistoryView.h */,
+				BC4361F8256E5986006D1D83 /* DTSearchHistoryView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -700,6 +710,7 @@
 				BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */,
 				BC4361D7256E42AE006D1D83 /* DTWebView.m in Sources */,
 				BC436194256D0210006D1D83 /* DTDownInputController.m in Sources */,
+				BC4361F9256E5986006D1D83 /* DTSearchHistoryView.m in Sources */,
 				BC43611B256C9D42006D1D83 /* DTBaseViewController.m in Sources */,
 				BC436123256C9D76006D1D83 /* DTBrowserViewController.m in Sources */,
 				BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */,
@@ -716,6 +727,7 @@
 				BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */,
 				BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */,
 				BC436188256CFB75006D1D83 /* DTDownListController.m in Sources */,
+				BC4361F5256E520D006D1D83 /* DTSearchToolView.m in Sources */,
 				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,
 				BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */,
 				BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */,

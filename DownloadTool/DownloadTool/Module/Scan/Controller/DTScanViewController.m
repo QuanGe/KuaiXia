@@ -25,6 +25,11 @@
     [self setupScanViewUI];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
+
 - (void)setupScanViewUI{
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.view).offset(-20);

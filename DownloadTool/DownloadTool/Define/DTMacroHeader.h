@@ -26,6 +26,7 @@
 #define LL_SafeAreaBottomHeight     (SCREEN_HEIGHT >= 812.0 ? 34 : 0)
 #define HEIGHT_TABBAR                49 // 标签
 #define NavigationBarHeight         (44.f + LL_SafeAreaTopStatusBar)
+#define kSearchViewHeight           (NavigationBarHeight + 10)
 
 #define DTRGB(r, g, b)              [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:1]
 #define DTColor(r, g, b, a)         [UIColor colorWithRed:(r)/255.0f green:(g)/255.0f blue:(b)/255.0f alpha:a]
@@ -34,5 +35,6 @@
 
 #define kBaseColor                  DTRGB(153,135,247)
 #define kBackViewColor              DTRGB(246, 246, 246)
+#define kZIColor                    DTRGB(127, 113, 247)
 
 #endif /* DTMacroHeader_h */

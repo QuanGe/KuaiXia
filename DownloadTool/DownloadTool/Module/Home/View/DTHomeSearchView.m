@@ -31,8 +31,8 @@
     self.backgroundColor = [UIColor whiteColor];
     [self.scanButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-20);
-        make.width.height.mas_equalTo(30);
-        make.bottom.equalTo(self).offset(-10);
+        make.width.height.mas_equalTo(35);
+        make.bottom.equalTo(self).offset(-5);
     }];
     [self.searchMaskView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
@@ -72,7 +72,7 @@
 - (UIView *)searchMaskView{
     if (!_searchMaskView) {
         _searchMaskView = [[UIView alloc] init];
-        _searchMaskView.layer.cornerRadius = 15;
+        _searchMaskView.layer.cornerRadius = 17;
         _searchMaskView.layer.masksToBounds = YES;
         _searchMaskView.layer.borderColor = kBaseColor.CGColor;
         _searchMaskView.layer.borderWidth = 1;
