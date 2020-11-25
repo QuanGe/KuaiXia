@@ -38,7 +38,9 @@
 #pragma mark - Click
 - (void)clickSearchButton{
     DTSearchViewController *searchVC = [[DTSearchViewController alloc] init];
-    [self.navigationController pushViewController:searchVC animated:YES];
+    searchVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    searchVC.parsentVC = self;
+    [self presentViewController:searchVC animated:NO completion:nil];
 }
 
 - (void)clickScanButton{

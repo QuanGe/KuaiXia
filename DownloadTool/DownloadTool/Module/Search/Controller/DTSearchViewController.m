@@ -11,6 +11,7 @@
 #import "DTSearchHistoryView.h"
 #import "DTSeatchHistoryDBHelper.h"
 #import "DTCommonHelper.h"
+#import "DTBrowserViewController.h"
 
 @interface DTSearchViewController () <DTSearchToolViewDelegate, DTSearchHistoryViewDelegate>
 
@@ -39,10 +40,15 @@
     }];
 }
 
+- (void)setAddressStr:(NSString *)addressStr{
+    _addressStr = addressStr;
+    self.searchToolView.addressStr = addressStr;
+}
+
 #pragma mark - Click
 - (void)clickCloseButtonAnimation:(BOOL)animation{
     if (self.presentingViewController) {
-        [self dismissViewControllerAnimated:NO completion:nil];
+        [self dismissViewControllerAnimated:animation completion:nil];
     } else {
         [self.navigationController popViewControllerAnimated:animation];
     }
@@ -69,6 +75,13 @@
     [[DTSeatchHistoryDBHelper sharedDB] saveItem:model];
     
     //打开url
+    if (self.parsentVC) {
+        DTBrowserViewController *webVC = [[DTBrowserViewController alloc] init];
+        [self.parsentVC.navigationController pushViewController:webVC animated:YES];
+    }
+    
+    //搜索消失
+    [self clickCloseButtonAnimation:NO];
 }
 
 #pragma mark - DTSearchToolViewDelegate

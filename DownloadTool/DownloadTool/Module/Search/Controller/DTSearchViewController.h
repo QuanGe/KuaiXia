@@ -12,6 +12,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DTSearchViewController : DTBaseViewController
 
+@property (nonatomic, strong) DTBaseViewController *parsentVC;
+@property (nonatomic, copy)   NSString *addressStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

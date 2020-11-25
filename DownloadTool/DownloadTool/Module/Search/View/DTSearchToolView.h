@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DTSearchToolView : UIView
 
 @property (nonatomic, weak) id<DTSearchToolViewDelegate> delegate;
+@property (nonatomic, copy) NSString *addressStr;
 
 @end
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		787EFD8B256E94C900C4B211 /* DTBrowserAdressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EFD8A256E94C900C4B211 /* DTBrowserAdressView.m */; };
 		997435F6830C7C15ACC3051A /* Pods_DownloadTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F567CE6F3E3E15426E1380 /* Pods_DownloadTool.framework */; };
 		BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1FBDED2564B0B000E89C37 /* AppDelegate.m */; };
 		BC1FBDF92564B0B300E89C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1FBDF82564B0B300E89C37 /* Assets.xcassets */; };
@@ -53,6 +54,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		787EFD89256E94C900C4B211 /* DTBrowserAdressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBrowserAdressView.h; sourceTree = "<group>"; };
+		787EFD8A256E94C900C4B211 /* DTBrowserAdressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTBrowserAdressView.m; sourceTree = "<group>"; };
 		87F567CE6F3E3E15426E1380 /* Pods_DownloadTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DownloadTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43523A2B7B5304489002DAB /* Pods-DownloadTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadTool.release.xcconfig"; path = "Target Support Files/Pods-DownloadTool/Pods-DownloadTool.release.xcconfig"; sourceTree = "<group>"; };
 		BA2376DC3B6C420F2E2B9604 /* Pods-DownloadTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadTool.debug.xcconfig"; path = "Target Support Files/Pods-DownloadTool/Pods-DownloadTool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +168,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		787EFD88256E94A700C4B211 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				787EFD89256E94C900C4B211 /* DTBrowserAdressView.h */,
+				787EFD8A256E94C900C4B211 /* DTBrowserAdressView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		9B19140F57E8447AD0857575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,12 +258,12 @@
 		BC436100256C9C89006D1D83 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				BC4361EA256E4DB8006D1D83 /* Scan */,
 				BC4361DE256E44A4006D1D83 /* Search */,
+				BC436104256C9C89006D1D83 /* Browser */,
+				BC4361EA256E4DB8006D1D83 /* Scan */,
 				BC4361C9256E2A76006D1D83 /* Help */,
 				BC4361C6256E2A76006D1D83 /* Setting */,
 				BC436101256C9C89006D1D83 /* Home */,
-				BC436104256C9C89006D1D83 /* Browser */,
 				BC436107256C9C89006D1D83 /* Download */,
 				BC43610A256C9C89006D1D83 /* Mine */,
 			);
@@ -289,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				BC436105256C9C89006D1D83 /* Controller */,
-				BC436106256C9C89006D1D83 /* View */,
+				787EFD88256E94A700C4B211 /* View */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -301,13 +313,6 @@
 				BC436122256C9D76006D1D83 /* DTBrowserViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		BC436106256C9C89006D1D83 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		BC436107256C9C89006D1D83 /* Download */ = {
@@ -745,6 +750,7 @@
 				BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */,
 				BC436172256CD033006D1D83 /* DTDownManager.m in Sources */,
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
+				787EFD8B256E94C900C4B211 /* DTBrowserAdressView.m in Sources */,
 				BC436117256C9D2A006D1D83 /* DTTabBarController.m in Sources */,
 				BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */,
 				BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */,

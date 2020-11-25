@@ -46,6 +46,12 @@
     [self.searchTextField becomeFirstResponder];
 }
 
+#pragma mark - Adress
+- (void)setAddressStr:(NSString *)addressStr{
+    _addressStr = addressStr;
+    self.searchTextField.text = addressStr;
+}
+
 #pragma mark - Click
 - (void)clickDisInput{
     [self endEditing:YES];

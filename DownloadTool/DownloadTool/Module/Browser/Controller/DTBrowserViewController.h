@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) DTWebView *webView;
 
+@property (nonatomic, copy) NSString *webTitle;    //标题
+@property (nonatomic, copy) NSURL *webUrl;      //连接
+
+- (void)openUrl:(NSString*)url;
+
 @end
 
 NS_ASSUME_NONNULL_END
