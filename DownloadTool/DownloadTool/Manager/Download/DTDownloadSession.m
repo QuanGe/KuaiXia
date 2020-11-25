@@ -113,7 +113,7 @@
             
             //请求成功，返回文件的大小
             if ([self.delegate respondsToSelector:@selector(didReceiveRespond:withRespondSize:)]) {
-                [self.delegate didReceiveRespond:dataTask withRespondSize:[self currentFileSize]];
+                [self.delegate didReceiveRespond:dataTask withRespondSize:realFileSize];
             }
             //开始时间
             self.beginTimeStamp = [[NSDate date] timeIntervalSince1970];

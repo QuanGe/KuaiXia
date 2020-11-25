@@ -18,6 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**根据url 获取保存文件的路径 */
 + (NSString *)getSaveFilepathWithUrl:(NSString*)url;
 
+/**时间戳转时间*/
++ (NSString *)convertStrToTime:(int64_t)timeVal;
+
+/**根据路径获取文件大小*/
++ (CGFloat)getFileSizeWithFilePath:(NSString*)filePath;
+
+/**获取数字的MB,GB,KB*/
++ (NSString *)getContentSizeWithTotalSize:(CGFloat)totalSize;
 
 @end
 

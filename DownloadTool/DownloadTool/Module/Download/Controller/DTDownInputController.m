@@ -7,12 +7,13 @@
 //
 
 #import "DTDownInputController.h"
+#import "DTTextView.h"
 #import "DTDownloadHandle.h"
 #import "DTGetVideoUrlHandle.h"
 
 @interface DTDownInputController ()
 
-@property (nonatomic, strong) UITextView *inputTextView;
+@property (nonatomic, strong) DTTextView *inputTextView;
 @property (nonatomic, strong) UIButton *downloadButton;
 @property (nonatomic, strong) UIButton *webButton;
 
@@ -57,6 +58,9 @@
 
 #pragma mark - Click
 - (void)clickCloseButton{
+    if (self.inputBlock) {
+        self.inputBlock();
+    }
     [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -70,6 +74,11 @@
 //根据连接获取地址
 - (void)clickWebButton{
     [self.view endEditing:YES];
+    if (self.inputTextView.text.length == 0) {
+        [DTProgressHUDHelper showMessage:@"地址不可为空"];
+        return;
+    }
+    
     [DTProgressHUDHelper show];
     
     __weak __typeof(self) weakSelf = self;
@@ -88,11 +97,21 @@
 
 #pragma mark - Download
 - (void)startDownloadWithUrl:(NSString*)url{
+    if (url.length == 0) {
+        [DTProgressHUDHelper showMessage:@"地址不可为空"];
+        return;
+    }
+    
     [DTProgressHUDHelper show];
     
-    [DTDownloadHandle dt_downloadFileWithUrl:url block:^(NSString * _Nullable message) {
+    __weak __typeof(self) weakSelf = self;
+    [DTDownloadHandle dt_downloadFileWithUrl:url block:^(NSString * _Nullable message, BOOL isStart) {
         [DTProgressHUDHelper dissMiss];
         [DTProgressHUDHelper showMessage:message];
+        //判断是否开始下载
+        if (isStart) {
+            [weakSelf clickCloseButton];
+        }
     }];
 }
 
@@ -100,18 +119,18 @@
 
 
 
-
-
-
-
 #pragma mark - lazy
-- (UITextView *)inputTextView{
+- (DTTextView *)inputTextView{
     if (!_inputTextView) {
-        _inputTextView = [[UITextView alloc] init];
+        _inputTextView = [[DTTextView alloc] init];
+        _inputTextView.placeholder = @"请输入下载链接";
+        _inputTextView.placeColor = DTRGB(163, 166, 177);
+        _inputTextView.backgroundColor = DTRGB(236, 236, 236);
         _inputTextView.layer.cornerRadius = 10;
         _inputTextView.layer.masksToBounds = YES;
         _inputTextView.layer.borderColor = kBaseColor.CGColor;
         _inputTextView.layer.borderWidth = 0.5;
+        _inputTextView.keyboardType = UIKeyboardTypeURL;
         [self.view addSubview:_inputTextView];
     }
     return _inputTextView;

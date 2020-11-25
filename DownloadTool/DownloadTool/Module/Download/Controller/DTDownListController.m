@@ -9,6 +9,8 @@
 #import "DTDownListController.h"
 #import "DTDownListTableCell.h"
 #import "DTDoownloadDBHelper.h"
+#import "DTDownloadModel.h"
+#import "DTDownManager.h"
 
 @interface DTDownListController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -43,17 +45,60 @@
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 1;
+    return self.listArrM.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DTDownListTableCell *cell = [DTDownListTableCell cellListTableWithTable:tableView];
+    
+    cell.itemModel = self.listArrM[indexPath.row];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return [DTDownListTableCell getListCellHeight];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self didSelectItemModelWithModel:self.listArrM[indexPath.row]];
+}
+
+#pragma mark - Alert
+- (void)didSelectItemModelWithModel:(DTDownloadModel*)model{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:model.downloadFileName message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *shared = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self clickShareButton];
+    }];
+    UIAlertAction *delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self clickDeleteButtonWithModel:model];
+    }];
+    UIAlertAction *details = [UIAlertAction actionWithTitle:@"详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    [alertVC addAction:cancel];
+    [alertVC addAction:delete];
+    [alertVC addAction:shared];
+    [alertVC addAction:details];
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
+}
+
+//分享
+- (void)clickShareButton{
+    
+}
+
+- (void)clickDeleteButtonWithModel:(DTDownloadModel*)model{
+    //列表删除
+    [self.listArrM removeObject:model];
+    //删除任务，删除文件，删除数据库中的记
+    [[DTDownManager shareInstance] removeDownloadFile:model.downloadUrl];
+    //刷新table
+    [self.listTableView reloadData];
 }
 
 

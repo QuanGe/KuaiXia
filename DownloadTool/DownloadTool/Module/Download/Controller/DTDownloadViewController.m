@@ -13,13 +13,14 @@
 #import "DTDownListController.h"
 #import "DTDownInputController.h"
 #import "DTNavigationController.h"
+#import "DTDoownloadDBHelper.h"
 
 @interface DTDownloadViewController () <UITableViewDelegate, UITableViewDataSource, DTDownManagerDelegate>
 
 @property (nonatomic, strong) UITableView *downTableView;
 @property (nonatomic, strong) UIButton *downButton;
 @property (nonatomic, strong) UIButton *addButton;
-@property (nonatomic, strong) NSArray *downList;
+@property (nonatomic, strong) NSMutableArray *downListM;
 
 @end
 
@@ -35,6 +36,7 @@
     [DTDownloadHandle startDownList];
     
     [self setupViewUI];
+    [self updateData];
 }
 
 - (void)setupViewUI{
@@ -56,8 +58,11 @@
     }];
 }
 
+//刷新数据
 - (void)updateData{
-    
+    NSArray *list = [[DTDoownloadDBHelper sharedDB] getLoadingItems];
+    self.downListM = [NSMutableArray arrayWithArray:list];
+    [self.downTableView reloadData];
 }
 
 #pragma mark - Click
@@ -68,6 +73,10 @@
 
 - (void)clickAddButton{
     DTDownInputController *inputVC = [[DTDownInputController alloc] init];
+    __weak __typeof(self) weakSelf = self;
+    inputVC.inputBlock = ^{
+        [weakSelf updateData];
+    };
     DTNavigationController *navVC = [[DTNavigationController alloc] initWithRootViewController:inputVC];
     navVC.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:navVC animated:YES completion:nil];
@@ -75,12 +84,14 @@
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 3;
+    return self.downListM.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     DTDownloadTableCell *cell = [DTDownloadTableCell cellDownloadTableWithTable:tableView];
     
+    DTDownloadModel *itemModel = self.downListM[indexPath.row];
+    cell.itemModel = itemModel;
     
     return cell;
 }
@@ -90,37 +101,62 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    DTDownloadModel *itemModel = self.downListM[indexPath.row];
     
+    if (itemModel.downloadStatus == DTWSLDownLoad_Loading) {   //下载中
+        [[DTDownManager shareInstance] pauseDownload:itemModel];
+        
+    } else if (itemModel.downloadStatus == DTWSLDownLoad_Pause) {  //暂停
+        [[DTDownManager shareInstance] startDowload:itemModel.downloadUrl withSuggestionName:itemModel.downloadFileName withMIMEType:itemModel.downloadType cookie:itemModel.downloadCookie];
+        
+    } else if (itemModel.downloadStatus == DTWSLDownLoad_Failed) {  //失败
+        itemModel.downloadAlreadySize = 0;
+        [[DTDownManager shareInstance] startDowload:itemModel.downloadUrl withSuggestionName:itemModel.downloadFileName withMIMEType:itemModel.downloadType cookie:itemModel.downloadCookie];
+    }
+}
+
+
+//刷新tableView,跟新cell状态
+- (void)reloadTableWithDownTasl:(DTDownloadObject*)downloadTask downloadStatus:(DTWSLDownLoadStatus)downloadStatus{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *cells = [self.downTableView visibleCells];
+        for (DTDownloadTableCell *cell in cells) {
+            if (cell.itemModel && [cell.itemModel.downloadUrl isEqualToString:downloadTask.downloadUrl]) {
+                cell.itemModel.downloadStatus = downloadStatus;
+                [cell reloadCell];
+            }
+        }
+    });
 }
 
 
 #pragma mark - DTDownManagerDelegate
 /**开始下载*/
 - (void)downloadStarted:(DTDownloadObject *)downloadTask{
-    NSLog(@"开始下载");
-}
-/**下载完成*/
-- (void)downloadCompleted:(DTDownloadObject *)downloadTask{
-    NSLog(@"下载完成");
+    [self reloadTableWithDownTasl:downloadTask downloadStatus:DTWSLDownLoad_Loading];
 }
 /**下载失败*/
 - (void)downloadFailed:(DTDownloadObject *)downloadTask{
-    NSLog(@"下载失败");
+    [self reloadTableWithDownTasl:downloadTask downloadStatus:DTWSLDownLoad_Failed];
 }
 /**下载暂停*/
 - (void)downloadPause:(DTDownloadObject *)downloadTask{
-    NSLog(@"下载暂停");
+    [self reloadTableWithDownTasl:downloadTask downloadStatus:DTWSLDownLoad_Pause];
+}
+/**下载完成*/
+- (void)downloadCompleted:(DTDownloadObject *)downloadTask{
+    [self updateData];
 }
 /**下载速度*/
 - (void)downloading:(DTDownloadObject *)downloadTask withSize:(NSNumber *)receiveDatelength withSpeed:(NSNumber *)speed{
-    NSLog(@"下载速度");
-    CGFloat downSpeed = [speed doubleValue];
-    if(downSpeed > 950){
-        downSpeed = downSpeed/1024;
-        NSLog(@"下载速度: %.1fM/s", downSpeed);
-    } else {
-        NSLog(@"下载速度: %.1fk/s", downSpeed);
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSArray *cells = [self.downTableView visibleCells];
+        for (DTDownloadTableCell *cell in cells) {
+            if (cell.itemModel && [cell.itemModel.downloadUrl isEqualToString:downloadTask.downloadUrl]) {
+                [cell setProgressWithProgress:[receiveDatelength longLongValue] speed:[speed doubleValue]];
+            }
+        }
+    });
 }
 
 
@@ -171,11 +207,11 @@
     return _addButton;
 }
 
-- (NSArray *)downList{
-    if (!_downList) {
-        _downList = [NSArray array];
+- (NSMutableArray *)downListM{
+    if (!_downListM) {
+        _downListM = [NSMutableArray array];
     }
-    return _downList;
+    return _downListM;
 }
 
 @end

@@ -32,6 +32,6 @@
 #define DTHexColor(rgbValue)        [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 #define DTHexColorA(rgbValue,__a)   [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:__a]
 
-#define kBaseColor                  DTRGB(252,205,12)
+#define kBaseColor                  DTRGB(153,135,247)
 
 #endif /* DTMacroHeader_h */

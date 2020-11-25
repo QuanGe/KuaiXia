@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DTDownInputController : DTBaseViewController
 
+@property (copy, nonatomic) void(^inputBlock)(void);
+
 @end
 
 NS_ASSUME_NONNULL_END

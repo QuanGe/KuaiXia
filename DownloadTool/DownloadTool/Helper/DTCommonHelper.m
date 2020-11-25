@@ -90,4 +90,59 @@
     return result;
 }
 
+
+//时间戳转时间
++ (NSString *)convertStrToTime:(int64_t)timeVal{
+    if (timeVal == 0) {
+        return @"";
+    }
+    //    如果服务器返回的是13位字符串，需要除以1000，否则显示不正确(13位其实代表的是毫秒，需要除以1000)
+    if (sizeof(timeVal) > 13) {
+        timeVal = timeVal / 1000;
+    }
+    
+    
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:timeVal];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    [formatter setLocale:[NSLocale localeWithLocaleIdentifier:@"zh"]];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+    NSString *timeString = [formatter stringFromDate:date];
+    
+    return timeString;
+}
+
+//根据路径获取文件大小
++ (CGFloat)getFileSizeWithFilePath:(NSString*)filePath{
+    NSFileManager* manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+
+//获取数字的MB,GB,KB
++ (NSString *)getContentSizeWithTotalSize:(CGFloat)totalSize{
+
+    long kb = 1024;
+    long mb = kb * 1024;
+    long gb = mb * 1024;
+    
+    NSString *str;
+    if (totalSize <= 0) {
+        return @"0.0B";
+    } else if (totalSize >= gb) {
+        float f = (float)totalSize/gb;
+        str = [NSString stringWithFormat:@"%.1fGB", f];
+    } else if (totalSize >= mb) {
+        float f = (float)totalSize/mb;
+        str = [NSString stringWithFormat:@"%.1fMB", f];
+    } else {
+        float f = (float)totalSize/kb;
+        str = [NSString stringWithFormat:@"%.1fKB", f];
+    }
+    
+    return str;
+}
+
 @end

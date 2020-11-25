@@ -15,8 +15,6 @@ typedef NS_OPTIONS(NSInteger, DTWSLDownLoadStatus){
     DTWSLDownLoad_Loading,     //下载中
     DTWSLDownLoad_Complete,    //完成
     DTWSLDownLoad_Failed,      //失败
-    DTWSLDownLoad_FileDeleted, //文件已删除
-    DTWSLDownLoad_TaskDelete   //任务已删除
 };
 
 @interface DTDownloadModel : NSObject

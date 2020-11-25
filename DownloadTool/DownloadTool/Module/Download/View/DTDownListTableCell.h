@@ -10,7 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class DTDownloadModel;
 @interface DTDownListTableCell : UITableViewCell
+
+@property (nonatomic, strong) DTDownloadModel *itemModel;
 
 + (CGFloat)getListCellHeight;
 + (instancetype)cellListTableWithTable:(UITableView*)tableView;

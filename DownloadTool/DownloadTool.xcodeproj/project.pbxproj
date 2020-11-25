@@ -35,6 +35,7 @@
 		BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361AC256D2AE3006D1D83 /* DTProgressHUDHelper.m */; };
 		BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B0256D2BC2006D1D83 /* AppDelegate+DTHUD.m */; };
 		BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */; };
+		BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B9256DFD31006D1D83 /* DTTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +97,8 @@
 		BC4361B0256D2BC2006D1D83 /* AppDelegate+DTHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+DTHUD.m"; sourceTree = "<group>"; };
 		BC4361B3256D2DE1006D1D83 /* DTDownListTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTDownListTableCell.h; sourceTree = "<group>"; };
 		BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownListTableCell.m; sourceTree = "<group>"; };
+		BC4361B8256DFD31006D1D83 /* DTTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTTextView.h; sourceTree = "<group>"; };
+		BC4361B9256DFD31006D1D83 /* DTTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,7 @@
 		BC43610D256C9C89006D1D83 /* UICommon */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361B7256DFD22006D1D83 /* TextView */,
 				BC436132256C9F8A006D1D83 /* BaseController */,
 				BC436133256C9F8A006D1D83 /* Navigation */,
 				BC436134256C9F8A006D1D83 /* TabBar */,
@@ -412,6 +416,15 @@
 				BC436198256D0467006D1D83 /* UIImage+Utility.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		BC4361B7256DFD22006D1D83 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361B8256DFD31006D1D83 /* DTTextView.h */,
+				BC4361B9256DFD31006D1D83 /* DTTextView.m */,
+			);
+			path = TextView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -545,6 +558,7 @@
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
 				BC436117256C9D2A006D1D83 /* DTTabBarController.m in Sources */,
 				BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */,
+				BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */,
 				BC436188256CFB75006D1D83 /* DTDownListController.m in Sources */,
 				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,
 				BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */,
