@@ -37,6 +37,9 @@
 		BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */; };
 		BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B9256DFD31006D1D83 /* DTTextView.m */; };
 		BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361BD256E012C006D1D83 /* DTOpenDocumentController.m */; };
+		BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */; };
+		BC4361CE256E2A8E006D1D83 /* DTSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361CD256E2A8E006D1D83 /* DTSettingController.m */; };
+		BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +105,13 @@
 		BC4361B9256DFD31006D1D83 /* DTTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTTextView.m; sourceTree = "<group>"; };
 		BC4361BC256E012C006D1D83 /* DTOpenDocumentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTOpenDocumentController.h; sourceTree = "<group>"; };
 		BC4361BD256E012C006D1D83 /* DTOpenDocumentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTOpenDocumentController.m; sourceTree = "<group>"; };
+		BC4361C0256E21C9006D1D83 /* DTMineTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMineTableCell.h; sourceTree = "<group>"; };
+		BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMineTableCell.m; sourceTree = "<group>"; };
+		BC4361C4256E2496006D1D83 /* DTMinePublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMinePublicHeader.h; sourceTree = "<group>"; };
+		BC4361CC256E2A8E006D1D83 /* DTSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSettingController.h; sourceTree = "<group>"; };
+		BC4361CD256E2A8E006D1D83 /* DTSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSettingController.m; sourceTree = "<group>"; };
+		BC4361D0256E2A98006D1D83 /* DTHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHelpViewController.h; sourceTree = "<group>"; };
+		BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHelpViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +216,8 @@
 		BC436100256C9C89006D1D83 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361C9256E2A76006D1D83 /* Help */,
+				BC4361C6256E2A76006D1D83 /* Setting */,
 				BC436101256C9C89006D1D83 /* Home */,
 				BC436104256C9C89006D1D83 /* Browser */,
 				BC436107256C9C89006D1D83 /* Download */,
@@ -311,6 +323,7 @@
 		BC43610B256C9C89006D1D83 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361C4256E2496006D1D83 /* DTMinePublicHeader.h */,
 				BC436129256C9D85006D1D83 /* DTMineViewController.h */,
 				BC43612A256C9D85006D1D83 /* DTMineViewController.m */,
 			);
@@ -320,6 +333,8 @@
 		BC43610C256C9C89006D1D83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361C0256E21C9006D1D83 /* DTMineTableCell.h */,
+				BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -430,6 +445,56 @@
 				BC4361B9256DFD31006D1D83 /* DTTextView.m */,
 			);
 			path = TextView;
+			sourceTree = "<group>";
+		};
+		BC4361C6256E2A76006D1D83 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361C7256E2A76006D1D83 /* Controller */,
+				BC4361C8256E2A76006D1D83 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		BC4361C7256E2A76006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361CC256E2A8E006D1D83 /* DTSettingController.h */,
+				BC4361CD256E2A8E006D1D83 /* DTSettingController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC4361C8256E2A76006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC4361C9256E2A76006D1D83 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361CA256E2A76006D1D83 /* Controller */,
+				BC4361CB256E2A76006D1D83 /* View */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		BC4361CA256E2A76006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361D0256E2A98006D1D83 /* DTHelpViewController.h */,
+				BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC4361CB256E2A76006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -549,6 +614,7 @@
 				BC43618C256CFBDE006D1D83 /* DTDownloadTableCell.m in Sources */,
 				BC436112256C9D17006D1D83 /* DTNavigationController.m in Sources */,
 				BC43611F256C9D67006D1D83 /* DTHomeViewController.m in Sources */,
+				BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */,
 				BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */,
 				BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */,
 				BC436194256D0210006D1D83 /* DTDownInputController.m in Sources */,
@@ -557,8 +623,10 @@
 				BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */,
 				BC436176256CD726006D1D83 /* DTDoownloadDBHelper.m in Sources */,
 				BC4360FA256BDE34006D1D83 /* DTGetVideoUrlHandle.m in Sources */,
+				BC4361CE256E2A8E006D1D83 /* DTSettingController.m in Sources */,
 				BC436166256CC99A006D1D83 /* DTDownloadSession.m in Sources */,
 				BC43616A256CCDE8006D1D83 /* DTDownloadObject.m in Sources */,
+				BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */,
 				BC436172256CD033006D1D83 /* DTDownManager.m in Sources */,
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
 				BC436117256C9D2A006D1D83 /* DTTabBarController.m in Sources */,

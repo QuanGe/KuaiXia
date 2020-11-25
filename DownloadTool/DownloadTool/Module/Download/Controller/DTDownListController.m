@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) UITableView *listTableView;
 @property (nonatomic, strong) NSMutableArray *listArrM;
+@property (nonatomic, strong) UIImageView *maskImgView;
 
 @end
 
@@ -30,12 +31,21 @@
     
     [self setupViewUI];
     [self updateListData];
+    [self showMsgImgView];
 }
 
 - (void)setupViewUI{
     [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    [self.maskImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.centerY.equalTo(self.view).offset(-50);
+    }];
+}
+
+- (void)showMsgImgView{
+    self.maskImgView.hidden = self.listArrM.count != 0;
 }
 
 - (void)updateListData{
@@ -93,6 +103,7 @@
     [[DTDownManager shareInstance] removeDownloadFile:model.downloadUrl];
     //刷新table
     [self.listTableView reloadData];
+    [self showMsgImgView];
 }
 
 //其它应用打开
@@ -116,6 +127,14 @@
     return _listTableView;
 }
 
+- (UIImageView *)maskImgView{
+    if (!_maskImgView) {
+        _maskImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pic_007"]];
+        _maskImgView.hidden = YES;
+        [self.view addSubview:_maskImgView];
+    }
+    return _maskImgView;
+}
 
 - (NSMutableArray *)listArrM{
     if (!_listArrM) {

@@ -21,6 +21,7 @@
 @property (nonatomic, strong) UIButton *downButton;
 @property (nonatomic, strong) UIButton *addButton;
 @property (nonatomic, strong) NSMutableArray *downListM;
+@property (nonatomic, strong) UIImageView *maskImgView;
 
 @end
 
@@ -56,13 +57,23 @@
         make.left.right.top.equalTo(self.view);
         make.bottom.equalTo(self.downButton.mas_top).offset(-20);
     }];
+    [self.maskImgView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.downTableView);
+        make.centerY.equalTo(self.downTableView);
+    }];
 }
+
+- (void)showMsgImgView{
+    self.maskImgView.hidden = self.downListM.count != 0;
+}
+
 
 //刷新数据
 - (void)updateData{
     NSArray *list = [[DTDoownloadDBHelper sharedDB] getLoadingItems];
     self.downListM = [NSMutableArray arrayWithArray:list];
     [self.downTableView reloadData];
+    [self showMsgImgView];
 }
 
 #pragma mark - Click
@@ -213,5 +224,15 @@
     }
     return _downListM;
 }
+
+- (UIImageView *)maskImgView{
+    if (!_maskImgView) {
+        _maskImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pic_007"]];
+        _maskImgView.hidden = YES;
+        [self.view addSubview:_maskImgView];
+    }
+    return _maskImgView;
+}
+
 
 @end
