@@ -36,6 +36,7 @@
 		BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B0256D2BC2006D1D83 /* AppDelegate+DTHUD.m */; };
 		BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */; };
 		BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B9256DFD31006D1D83 /* DTTextView.m */; };
+		BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361BD256E012C006D1D83 /* DTOpenDocumentController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +100,8 @@
 		BC4361B4256D2DE1006D1D83 /* DTDownListTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTDownListTableCell.m; sourceTree = "<group>"; };
 		BC4361B8256DFD31006D1D83 /* DTTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTTextView.h; sourceTree = "<group>"; };
 		BC4361B9256DFD31006D1D83 /* DTTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTTextView.m; sourceTree = "<group>"; };
+		BC4361BC256E012C006D1D83 /* DTOpenDocumentController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTOpenDocumentController.h; sourceTree = "<group>"; };
+		BC4361BD256E012C006D1D83 /* DTOpenDocumentController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTOpenDocumentController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +282,8 @@
 				BC436187256CFB75006D1D83 /* DTDownListController.m */,
 				BC436192256D0210006D1D83 /* DTDownInputController.h */,
 				BC436193256D0210006D1D83 /* DTDownInputController.m */,
+				BC4361BC256E012C006D1D83 /* DTOpenDocumentController.h */,
+				BC4361BD256E012C006D1D83 /* DTOpenDocumentController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -558,6 +563,7 @@
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
 				BC436117256C9D2A006D1D83 /* DTTabBarController.m in Sources */,
 				BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */,
+				BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */,
 				BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */,
 				BC436188256CFB75006D1D83 /* DTDownListController.m in Sources */,
 				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,

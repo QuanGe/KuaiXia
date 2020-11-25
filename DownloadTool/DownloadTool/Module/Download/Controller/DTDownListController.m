@@ -11,6 +11,8 @@
 #import "DTDoownloadDBHelper.h"
 #import "DTDownloadModel.h"
 #import "DTDownManager.h"
+#import "DTOpenDocumentController.h"
+#import "DTCommonHelper.h"
 
 @interface DTDownListController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -69,29 +71,21 @@
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:model.downloadFileName message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *shared = [UIAlertAction actionWithTitle:@"分享" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self clickShareButton];
-    }];
     UIAlertAction *delete = [UIAlertAction actionWithTitle:@"删除" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [self clickDeleteButtonWithModel:model];
     }];
-    UIAlertAction *details = [UIAlertAction actionWithTitle:@"详情" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
+    UIAlertAction *other = [UIAlertAction actionWithTitle:@"用其它应用打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self clickOtherButtonModel:model];
     }];
     
     [alertVC addAction:cancel];
     [alertVC addAction:delete];
-    [alertVC addAction:shared];
-    [alertVC addAction:details];
+    [alertVC addAction:other];
     
     [self presentViewController:alertVC animated:YES completion:nil];
 }
 
-//分享
-- (void)clickShareButton{
-    
-}
-
+//删除
 - (void)clickDeleteButtonWithModel:(DTDownloadModel*)model{
     //列表删除
     [self.listArrM removeObject:model];
@@ -101,6 +95,12 @@
     [self.listTableView reloadData];
 }
 
+//其它应用打开
+- (void)clickOtherButtonModel:(DTDownloadModel*)model{
+    NSString *filePath = [DTCommonHelper getSaveFilepathWithUrl:model.downloadUrl];
+    NSURL *fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@", filePath, model.downloadFileName]];
+    [DTOpenDocumentController openFileInOtherApplication:fileURL controller:self];
+}
 
 #pragma mark - Lazy
 - (UITableView *)listTableView{
