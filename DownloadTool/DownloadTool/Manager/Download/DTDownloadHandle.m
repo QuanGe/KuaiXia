@@ -22,7 +22,7 @@
 + (void)dt_downloadFileWithUrl:(NSString *)url block:(HandleBlack)block{
     if (url.length == 0) {
         if (block) {
-            block(@"地址错误,请查看地址是否正确", NO);
+            block(@"地址错误,请查看地址是否正确");
         }
         return;
     }
@@ -30,7 +30,7 @@
     //是否下载中
     if ([[DTDownManager shareInstance] hasDownload:url]) {
         if (block) {
-            block(@"文件在下载列表中", NO);
+            block(@"文件在下载列表中");
         }
         return;
     }
@@ -40,7 +40,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             if (error) {
                 if (block) {
-                    block(@"下载失败,请查看地址是否正确", NO);
+                    block(@"下载失败,请查看地址是否正确");
                 }
             } else {
                 //开始下载
@@ -89,18 +89,15 @@
     //判断是否下载
     DTDownloadObject *obj = [[DTDownManager shareInstance] findDownloadObjectByUrl:url];
     NSString *msg = @"";
-    BOOL isStart = NO;
     if (obj.downloadStatus == DTWSLDownLoad_Loading) {
         msg = @"文件正在下载";
-        isStart = NO;
     } else {
-        isStart = YES;
         msg = [NSString stringWithFormat:@"%@-开始下载", fileName];
         [[DTDownManager shareInstance] startDowload:url withSuggestionName:fileName withMIMEType:mimeType cookie:cookieStr];
     }
     //回调
     if (block) {
-        block(msg, isStart);
+        block(msg);
     }
 }
 

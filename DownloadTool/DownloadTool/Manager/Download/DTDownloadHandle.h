@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^HandleBlack)(NSString * _Nullable message, BOOL isStart);
+typedef void(^HandleBlack)(NSString * _Nullable message);
 
 @interface DTDownloadHandle : NSObject
 
