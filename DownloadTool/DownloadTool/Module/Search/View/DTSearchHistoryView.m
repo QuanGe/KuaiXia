@@ -56,7 +56,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DTSeatchHistoryModel *itemModel = self.hisyoryList[indexPath.row];
     if ([self.delegate respondsToSelector:@selector(didSelectUrl:)]) {
-        [self.delegate didSelectUrl:itemModel.urlString];
+        [self.delegate didSelectUrl:itemModel.title];
     }
 }
 

@@ -13,7 +13,6 @@
 + (DTSeatchHistoryModel*)defaultHistoryModel{
     DTSeatchHistoryModel *model = [[DTSeatchHistoryModel alloc] init];
     model.title       = @"";
-    model.urlString   = @"";
     model.createdDate = [[NSDate date] timeIntervalSince1970];
     return model;
 }
