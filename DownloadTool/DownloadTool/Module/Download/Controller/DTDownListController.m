@@ -119,7 +119,7 @@
         _listTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _listTableView.delegate = self;
         _listTableView.dataSource = self;
-        _listTableView.backgroundColor = [UIColor whiteColor];
+        _listTableView.backgroundColor = kBackViewColor;
         _listTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_listTableView];

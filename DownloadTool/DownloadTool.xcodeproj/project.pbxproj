@@ -40,6 +40,11 @@
 		BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */; };
 		BC4361CE256E2A8E006D1D83 /* DTSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361CD256E2A8E006D1D83 /* DTSettingController.m */; };
 		BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */; };
+		BC4361D7256E42AE006D1D83 /* DTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361D6256E42AE006D1D83 /* DTWebView.m */; };
+		BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361DB256E4362006D1D83 /* DTWebView+DTJS.m */; };
+		BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361E2256E44BF006D1D83 /* DTSearchViewController.m */; };
+		BC4361E8256E44DF006D1D83 /* DTHomeSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */; };
+		BC4361EF256E4DC5006D1D83 /* DTScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361EE256E4DC5006D1D83 /* DTScanViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +117,16 @@
 		BC4361CD256E2A8E006D1D83 /* DTSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSettingController.m; sourceTree = "<group>"; };
 		BC4361D0256E2A98006D1D83 /* DTHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHelpViewController.h; sourceTree = "<group>"; };
 		BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHelpViewController.m; sourceTree = "<group>"; };
+		BC4361D5256E42AE006D1D83 /* DTWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTWebView.h; sourceTree = "<group>"; };
+		BC4361D6256E42AE006D1D83 /* DTWebView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTWebView.m; sourceTree = "<group>"; };
+		BC4361DA256E4362006D1D83 /* DTWebView+DTJS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTWebView+DTJS.h"; sourceTree = "<group>"; };
+		BC4361DB256E4362006D1D83 /* DTWebView+DTJS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTWebView+DTJS.m"; sourceTree = "<group>"; };
+		BC4361E1256E44BF006D1D83 /* DTSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSearchViewController.h; sourceTree = "<group>"; };
+		BC4361E2256E44BF006D1D83 /* DTSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSearchViewController.m; sourceTree = "<group>"; };
+		BC4361E6256E44DF006D1D83 /* DTHomeSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHomeSearchView.h; sourceTree = "<group>"; };
+		BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeSearchView.m; sourceTree = "<group>"; };
+		BC4361ED256E4DC5006D1D83 /* DTScanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTScanViewController.h; sourceTree = "<group>"; };
+		BC4361EE256E4DC5006D1D83 /* DTScanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTScanViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +231,8 @@
 		BC436100256C9C89006D1D83 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361EA256E4DB8006D1D83 /* Scan */,
+				BC4361DE256E44A4006D1D83 /* Search */,
 				BC4361C9256E2A76006D1D83 /* Help */,
 				BC4361C6256E2A76006D1D83 /* Setting */,
 				BC436101256C9C89006D1D83 /* Home */,
@@ -247,6 +264,8 @@
 		BC436103256C9C89006D1D83 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361E6256E44DF006D1D83 /* DTHomeSearchView.h */,
+				BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +361,7 @@
 		BC43610D256C9C89006D1D83 /* UICommon */ = {
 			isa = PBXGroup;
 			children = (
+				BC4361D4256E4294006D1D83 /* WebView */,
 				BC4361B7256DFD22006D1D83 /* TextView */,
 				BC436132256C9F8A006D1D83 /* BaseController */,
 				BC436133256C9F8A006D1D83 /* Navigation */,
@@ -497,6 +517,67 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC4361D4256E4294006D1D83 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361D5256E42AE006D1D83 /* DTWebView.h */,
+				BC4361D6256E42AE006D1D83 /* DTWebView.m */,
+				BC4361DA256E4362006D1D83 /* DTWebView+DTJS.h */,
+				BC4361DB256E4362006D1D83 /* DTWebView+DTJS.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		BC4361DE256E44A4006D1D83 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361DF256E44A4006D1D83 /* Controller */,
+				BC4361E0256E44A4006D1D83 /* View */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		BC4361DF256E44A4006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361E1256E44BF006D1D83 /* DTSearchViewController.h */,
+				BC4361E2256E44BF006D1D83 /* DTSearchViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC4361E0256E44A4006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC4361EA256E4DB8006D1D83 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361EB256E4DB8006D1D83 /* Controller */,
+				BC4361EC256E4DB8006D1D83 /* View */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		BC4361EB256E4DB8006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4361ED256E4DC5006D1D83 /* DTScanViewController.h */,
+				BC4361EE256E4DC5006D1D83 /* DTScanViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC4361EC256E4DB8006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -617,6 +698,7 @@
 				BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */,
 				BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */,
 				BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */,
+				BC4361D7256E42AE006D1D83 /* DTWebView.m in Sources */,
 				BC436194256D0210006D1D83 /* DTDownInputController.m in Sources */,
 				BC43611B256C9D42006D1D83 /* DTBaseViewController.m in Sources */,
 				BC436123256C9D76006D1D83 /* DTBrowserViewController.m in Sources */,
@@ -637,10 +719,14 @@
 				BC436162256CB08D006D1D83 /* DTCommonHelper.m in Sources */,
 				BC43616E256CCE20006D1D83 /* DTDownloadModel.m in Sources */,
 				BC4361B5256D2DE1006D1D83 /* DTDownListTableCell.m in Sources */,
+				BC4361E8256E44DF006D1D83 /* DTHomeSearchView.m in Sources */,
 				BC43612B256C9D85006D1D83 /* DTMineViewController.m in Sources */,
+				BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */,
 				BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */,
+				BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */,
 				BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */,
 				BC1FBDFF2564B0B300E89C37 /* main.m in Sources */,
+				BC4361EF256E4DC5006D1D83 /* DTScanViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

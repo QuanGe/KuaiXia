@@ -104,7 +104,7 @@
     
     [DTProgressHUDHelper show];
     
-    __weak __typeof(self) weakSelf = self;
+    
     [DTDownloadHandle dt_downloadFileWithUrl:url block:^(NSString * _Nullable message) {
         [DTProgressHUDHelper dissMiss];
         [DTProgressHUDHelper showMessage:message];

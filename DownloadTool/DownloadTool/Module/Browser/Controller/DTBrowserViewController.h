@@ -7,10 +7,13 @@
 //
 
 #import "DTBaseViewController.h"
+#import "DTWebView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DTBrowserViewController : DTBaseViewController
+
+@property (nonatomic, strong) DTWebView *webView;
 
 @end
 

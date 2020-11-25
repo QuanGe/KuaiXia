@@ -178,7 +178,7 @@
         _downTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         _downTableView.delegate = self;
         _downTableView.dataSource = self;
-        _downTableView.backgroundColor = [UIColor whiteColor];
+        _downTableView.backgroundColor = kBackViewColor;
         _downTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _downTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.view addSubview:_downTableView];

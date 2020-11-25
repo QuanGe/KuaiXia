@@ -123,7 +123,7 @@
         _mineTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
         _mineTableView.delegate = self;
         _mineTableView.dataSource = self;
-        _mineTableView.backgroundColor = DTRGB(246, 246, 246);
+        _mineTableView.backgroundColor = kBackViewColor;
         _mineTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
         _mineTableView.tableHeaderView = self.tableHeadView;
         _mineTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
