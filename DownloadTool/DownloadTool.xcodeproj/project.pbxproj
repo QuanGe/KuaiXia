@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		787EFD8B256E94C900C4B211 /* DTBrowserAdressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EFD8A256E94C900C4B211 /* DTBrowserAdressView.m */; };
+		787EFD90256EA09200C4B211 /* DTBrowserTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 787EFD8F256EA09200C4B211 /* DTBrowserTabView.m */; };
 		997435F6830C7C15ACC3051A /* Pods_DownloadTool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F567CE6F3E3E15426E1380 /* Pods_DownloadTool.framework */; };
 		BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1FBDED2564B0B000E89C37 /* AppDelegate.m */; };
 		BC1FBDF92564B0B300E89C37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC1FBDF82564B0B300E89C37 /* Assets.xcassets */; };
@@ -56,6 +57,8 @@
 /* Begin PBXFileReference section */
 		787EFD89256E94C900C4B211 /* DTBrowserAdressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBrowserAdressView.h; sourceTree = "<group>"; };
 		787EFD8A256E94C900C4B211 /* DTBrowserAdressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTBrowserAdressView.m; sourceTree = "<group>"; };
+		787EFD8E256EA09200C4B211 /* DTBrowserTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBrowserTabView.h; sourceTree = "<group>"; };
+		787EFD8F256EA09200C4B211 /* DTBrowserTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTBrowserTabView.m; sourceTree = "<group>"; };
 		87F567CE6F3E3E15426E1380 /* Pods_DownloadTool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DownloadTool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A43523A2B7B5304489002DAB /* Pods-DownloadTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadTool.release.xcconfig"; path = "Target Support Files/Pods-DownloadTool/Pods-DownloadTool.release.xcconfig"; sourceTree = "<group>"; };
 		BA2376DC3B6C420F2E2B9604 /* Pods-DownloadTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownloadTool.debug.xcconfig"; path = "Target Support Files/Pods-DownloadTool/Pods-DownloadTool.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 			children = (
 				787EFD89256E94C900C4B211 /* DTBrowserAdressView.h */,
 				787EFD8A256E94C900C4B211 /* DTBrowserAdressView.m */,
+				787EFD8E256EA09200C4B211 /* DTBrowserTabView.h */,
+				787EFD8F256EA09200C4B211 /* DTBrowserTabView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 				BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */,
 				BC4361FF256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m in Sources */,
 				BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */,
+				787EFD90256EA09200C4B211 /* DTBrowserTabView.m in Sources */,
 				BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */,
 				BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */,
 				BC1FBDFF2564B0B300E89C37 /* main.m in Sources */,
