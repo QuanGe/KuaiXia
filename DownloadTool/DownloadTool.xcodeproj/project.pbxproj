@@ -157,6 +157,7 @@
 		BC436251256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTBrowserViewController+DTNavDelegate.m"; sourceTree = "<group>"; };
 		BC436254256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTBrowserViewController+DTUIDelegate.h"; sourceTree = "<group>"; };
 		BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTBrowserViewController+DTUIDelegate.m"; sourceTree = "<group>"; };
+		BC436258256FC8C4006D1D83 /* DTBrowserPublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBrowserPublicHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +315,7 @@
 		BC436104256C9C89006D1D83 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				BC436258256FC8C4006D1D83 /* DTBrowserPublicHeader.h */,
 				BC436105256C9C89006D1D83 /* Controller */,
 				787EFD88256E94A700C4B211 /* View */,
 			);

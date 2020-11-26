@@ -11,11 +11,15 @@
 @implementation DTBrowserViewController (DTTab)
 
 - (void)tabLeftTab:(DTBrowserTabView *)tabView{
-    NSLog(@"tabLeftTab");
+    if ([self.webDTView canGoBack]) {
+        [self.webDTView goBack];
+    }
 }
 
 - (void)tabRightTab:(DTBrowserTabView *)tabView{
-    NSLog(@"tabRightTab");
+    if ([self.webDTView canGoForward]) {
+        [self.webDTView goForward];
+    }
 }
 
 - (void)tabHomeTab:(DTBrowserTabView *)tabView{

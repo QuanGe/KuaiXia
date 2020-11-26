@@ -23,6 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<DTBrowserAdressViewDelegate> delegate;
 
+/**进度条*/
+- (void)updateAdressProgress:(CGFloat)progress;
+/**是否加载*/
+- (void)updateAdressLoading:(BOOL)loading;
+/**连接url*/
+- (void)updateAdressUrl:(NSString*)url;
+
 @end
 
 NS_ASSUME_NONNULL_END

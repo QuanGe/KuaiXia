@@ -25,6 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id<DTBrowserTabViewDelegate> delegate;
 
+/**后退*/
+- (void)updateTabCanBack:(BOOL)canBack;
+/**前进*/
+- (void)updateTabCanForward:(BOOL)canForward;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,4 +10,10 @@
 
 @implementation DTBrowserViewController (DTNavDelegate)
 
+
+//完成
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+}
+
 @end

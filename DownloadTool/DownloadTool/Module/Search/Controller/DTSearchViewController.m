@@ -30,6 +30,9 @@
 }
 
 - (void)setupViewUI{
+    [self.view addSubview:self.searchToolView];
+    [self.view addSubview:self.historyView];
+    
     [self.searchToolView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self.view);
         make.height.mas_equalTo(kSearchViewHeight);
@@ -48,7 +51,7 @@
 #pragma mark - Click
 - (void)clickCloseButtonAnimation:(BOOL)animation{
     if (self.presentingViewController) {
-        [self dismissViewControllerAnimated:animation completion:nil];
+        [self dismissViewControllerAnimated:nil completion:nil];
     } else {
         [self.navigationController popViewControllerAnimated:animation];
     }
@@ -78,6 +81,7 @@
     if (self.parsentVC) {
         DTBrowserViewController *webVC = [[DTBrowserViewController alloc] init];
         [self.parsentVC.navigationController pushViewController:webVC animated:YES];
+        [webVC openUrl:urlString];
     }
     
     //搜索消失
@@ -106,7 +110,6 @@
     if (!_searchToolView) {
         _searchToolView = [[DTSearchToolView alloc] init];
         _searchToolView.delegate = self;
-        [self.view addSubview:_searchToolView];
     }
     return _searchToolView;
 }
@@ -115,7 +118,6 @@
     if (!_historyView) {
         _historyView = [[DTSearchHistoryView alloc] init];
         _historyView.delegate = self;
-        [self.view addSubview:_historyView];
     }
     return _historyView;
 }

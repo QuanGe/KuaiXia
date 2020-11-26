@@ -14,6 +14,8 @@
 @property (nonatomic, strong) UIButton *backMaskButton;
 @property (nonatomic, strong) UIButton *refreshOrStopButton;
 @property (nonatomic, strong) UILabel *addressLabel;
+@property (nonatomic, strong) UIView *lineView;
+@property (nonatomic,strong) UIProgressView *myProgressView;
 
 @property (nonatomic, strong) UIButton *backPopButton; //返回按钮
 
@@ -51,11 +53,36 @@
         make.right.equalTo(self.refreshOrStopButton.mas_left).offset(-10);
         make.centerY.equalTo(self.backMaskView);
     }];
+    [self.backMaskButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.backMaskView);
+    }];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self);
+        make.height.mas_equalTo(1);
+    }];
+    [self.myProgressView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 #pragma mark - Content
-
-
+/**进度条*/
+- (void)updateAdressProgress:(CGFloat)progress{
+    self.myProgressView.hidden = NO;
+    self.myProgressView.progress = progress;
+    if (progress == 1) {
+        self.myProgressView.hidden = YES;
+    }
+}
+/**是否加载*/
+- (void)updateAdressLoading:(BOOL)loading{
+    self.refreshOrStopButton.selected = loading;
+}
+/**连接url*/
+- (void)updateAdressUrl:(NSString*)url{
+    self.addressLabel.text = url;
+}
 
 #pragma mark - Click
 //返回
@@ -120,8 +147,8 @@
 - (UIButton *)refreshOrStopButton{
     if (!_refreshOrStopButton) {
         _refreshOrStopButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_refreshOrStopButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-        [_refreshOrStopButton setImage:[UIImage imageNamed:@""] forState:UIControlStateSelected];
+        [_refreshOrStopButton setImage:[UIImage imageNamed:@"adress_refresh"] forState:UIControlStateNormal];
+        [_refreshOrStopButton setImage:[UIImage imageNamed:@"adress_stop"] forState:UIControlStateSelected];
         [_refreshOrStopButton addTarget:self action:@selector(clickRefreshStopButton) forControlEvents:UIControlEventTouchUpInside];
         [self.backMaskView addSubview:_refreshOrStopButton];
     }
@@ -137,5 +164,28 @@
     }
     return _addressLabel;
 }
+
+- (UIProgressView *)myProgressView{
+    if (!_myProgressView) {
+        _myProgressView = [[UIProgressView alloc] init];
+        _myProgressView.progressViewStyle = UIProgressViewStyleBar;
+        _myProgressView.progress = 0;
+        _myProgressView.trackTintColor = [UIColor whiteColor];
+        _myProgressView.progressTintColor = kBaseColor;
+        [_myProgressView setProgress:0.8 animated:YES];
+        [self addSubview:_myProgressView];
+    }
+    return _myProgressView;
+}
+
+- (UIView *)lineView{
+    if (!_lineView) {
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = DTRGB(246, 246, 246);
+        [self addSubview:_lineView];
+    }
+    return _lineView;
+}
+
 
 @end

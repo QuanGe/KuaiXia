@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *webTitle;    //标题
 @property (nonatomic, copy) NSURL *webUrl;      //连接
 
+/**打开URL*/
 - (void)openUrl:(NSString*)url;
 
 @end

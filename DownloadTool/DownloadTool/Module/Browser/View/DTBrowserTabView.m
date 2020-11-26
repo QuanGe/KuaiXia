@@ -20,9 +20,13 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
     DTTabCode_Menu,       //菜单
 };
 
+#define kTagValue 7896
+
 @interface DTBrowserTabView()
 
 @property (nonatomic, strong) NSArray *buttonList;
+@property (nonatomic, strong) UILabel *tabTextLabel;
+@property (nonatomic, strong) UIView *lineView;
 
 @end
 
@@ -45,7 +49,10 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
         NSNumber *number = [dict objectForKey:kCellCODE];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.tag = number.integerValue;
+        button.tag = kTagValue + number.integerValue;
+        if (number.integerValue == DTTabCode_Left || number.integerValue == DTTabCode_Right) {
+            button.alpha = 0.3;
+        }
         [button setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(clickTabButton:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
@@ -58,11 +65,24 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
         make.top.equalTo(self);
         make.height.mas_equalTo(49);
     }];
+    
+    UIButton *moreButton = [self viewWithTag:kTagValue+DTTabCode_More];
+    if (moreButton) {
+        [self.tabTextLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.center.equalTo(moreButton);
+        }];
+    }
+    
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.top.equalTo(self);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 #pragma mark - Click
 - (void)clickTabButton:(UIButton*)sender{
-    switch (sender.tag) {
+    NSInteger tag = sender.tag - kTagValue;
+    switch (tag) {
         case DTTabCode_Left: {
             [self clickLeftButton];
         }
@@ -114,18 +134,61 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
     }
 }
 
+
+#pragma mark - Update
+/**后退*/
+- (void)updateTabCanBack:(BOOL)canBack{
+    UIButton *backButton = [self viewWithTag:kTagValue+DTTabCode_Left];
+    if (backButton) {
+        backButton.userInteractionEnabled = canBack;
+        backButton.alpha = canBack ? 1.0 : 0.3;
+    }
+}
+
+/**前进*/
+- (void)updateTabCanForward:(BOOL)canForward{
+    UIButton *forwardButton = [self viewWithTag:kTagValue+DTTabCode_Right];
+    if (forwardButton) {
+        forwardButton.userInteractionEnabled = canForward;
+        forwardButton.alpha = canForward ? 1.0 : 0.3;
+    }
+}
+
+
+
+
 #pragma mark - Lazy
 - (NSArray *)buttonList{
     if (!_buttonList) {
         _buttonList = @[
-            @{kCellIMG:@"browser_left", kCellCODE:@(DTTabCode_Left)},
+            @{kCellIMG:@"browser_left",  kCellCODE:@(DTTabCode_Left)},
             @{kCellIMG:@"browser_right", kCellCODE:@(DTTabCode_Right)},
-            @{kCellIMG:@"browser_home", kCellCODE:@(DTTabCode_Home)},
-            @{kCellIMG:@"browser_more", kCellCODE:@(DTTabCode_More)},
-            @{kCellIMG:@"browser_menu", kCellCODE:@(DTTabCode_Menu)},
+            @{kCellIMG:@"browser_home",  kCellCODE:@(DTTabCode_Home)},
+            @{kCellIMG:@"browser_more",  kCellCODE:@(DTTabCode_More)},
+            @{kCellIMG:@"browser_menu",  kCellCODE:@(DTTabCode_Menu)},
         ];
     }
     return _buttonList;
+}
+
+- (UILabel *)tabTextLabel{
+    if (!_tabTextLabel) {
+        _tabTextLabel = [[UILabel alloc] init];
+        _tabTextLabel.textColor = kBaseColor;
+        _tabTextLabel.font = [UIFont systemFontOfSize:13 weight:UIFontWeightMedium];
+        _tabTextLabel.text = @"1";
+        [self addSubview:_tabTextLabel];
+    }
+    return _tabTextLabel;
+}
+
+- (UIView *)lineView{
+    if (!_lineView) {
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = DTRGB(246, 246, 246);
+        [self addSubview:_lineView];
+    }
+    return _lineView;
 }
 
 @end
