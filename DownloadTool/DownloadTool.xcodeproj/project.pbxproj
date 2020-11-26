@@ -52,6 +52,9 @@
 		BC4361FF256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361FE256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m */; };
 		BC436203256E7A1B006D1D83 /* DTSeatchHistoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436202256E7A1B006D1D83 /* DTSeatchHistoryModel.m */; };
 		BC436207256E7E5D006D1D83 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436206256E7E5D006D1D83 /* NSString+Utility.m */; };
+		BC436249256FB187006D1D83 /* DTBrowserViewController+DTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436248256FB187006D1D83 /* DTBrowserViewController+DTTab.m */; };
+		BC436252256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436251256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m */; };
+		BC436256256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +151,12 @@
 		BC436202256E7A1B006D1D83 /* DTSeatchHistoryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSeatchHistoryModel.m; sourceTree = "<group>"; };
 		BC436205256E7E5D006D1D83 /* NSString+Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
 		BC436206256E7E5D006D1D83 /* NSString+Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
+		BC436247256FB187006D1D83 /* DTBrowserViewController+DTTab.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTBrowserViewController+DTTab.h"; sourceTree = "<group>"; };
+		BC436248256FB187006D1D83 /* DTBrowserViewController+DTTab.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTBrowserViewController+DTTab.m"; sourceTree = "<group>"; };
+		BC436250256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTBrowserViewController+DTNavDelegate.h"; sourceTree = "<group>"; };
+		BC436251256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTBrowserViewController+DTNavDelegate.m"; sourceTree = "<group>"; };
+		BC436254256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTBrowserViewController+DTUIDelegate.h"; sourceTree = "<group>"; };
+		BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTBrowserViewController+DTUIDelegate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +325,12 @@
 			children = (
 				BC436121256C9D76006D1D83 /* DTBrowserViewController.h */,
 				BC436122256C9D76006D1D83 /* DTBrowserViewController.m */,
+				BC436247256FB187006D1D83 /* DTBrowserViewController+DTTab.h */,
+				BC436248256FB187006D1D83 /* DTBrowserViewController+DTTab.m */,
+				BC436250256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.h */,
+				BC436251256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m */,
+				BC436254256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.h */,
+				BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -739,6 +754,7 @@
 				BC436112256C9D17006D1D83 /* DTNavigationController.m in Sources */,
 				BC43611F256C9D67006D1D83 /* DTHomeViewController.m in Sources */,
 				BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */,
+				BC436252256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m in Sources */,
 				BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */,
 				BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */,
 				BC4361D7256E42AE006D1D83 /* DTWebView.m in Sources */,
@@ -746,12 +762,14 @@
 				BC4361F9256E5986006D1D83 /* DTSearchHistoryView.m in Sources */,
 				BC43611B256C9D42006D1D83 /* DTBaseViewController.m in Sources */,
 				BC436123256C9D76006D1D83 /* DTBrowserViewController.m in Sources */,
+				BC436256256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m in Sources */,
 				BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */,
 				BC436176256CD726006D1D83 /* DTDoownloadDBHelper.m in Sources */,
 				BC4360FA256BDE34006D1D83 /* DTGetVideoUrlHandle.m in Sources */,
 				BC4361CE256E2A8E006D1D83 /* DTSettingController.m in Sources */,
 				BC436166256CC99A006D1D83 /* DTDownloadSession.m in Sources */,
 				BC43616A256CCDE8006D1D83 /* DTDownloadObject.m in Sources */,
+				BC436249256FB187006D1D83 /* DTBrowserViewController+DTTab.m in Sources */,
 				BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */,
 				BC436172256CD033006D1D83 /* DTDownManager.m in Sources */,
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,

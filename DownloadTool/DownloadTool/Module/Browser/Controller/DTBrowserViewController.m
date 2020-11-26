@@ -7,12 +7,12 @@
 //
 
 #import "DTBrowserViewController.h"
-#import "DTBrowserAdressView.h"
 #import "DTSearchViewController.h"
 
-@interface DTBrowserViewController () <DTBrowserAdressViewDelegate>
+@interface DTBrowserViewController () <DTBrowserAdressViewDelegate, DTBrowserTabViewDelegate, WKUIDelegate, WKNavigationDelegate>
 
 @property (nonatomic, strong) DTBrowserAdressView *adressView;
+@property (nonatomic, strong) DTBrowserTabView *tabView;
 
 @end
 
@@ -29,6 +29,15 @@
     [self.adressView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self.view);
         make.height.mas_equalTo(NavigationBarHeight);
+    }];
+    [self.tabView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.height.mas_equalTo(HEIGHT_TABBAR + LL_SafeAreaBottomHeight);
+    }];
+    [self.webDTView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.adressView.mas_bottom);
+        make.bottom.equalTo(self.tabView.mas_top);
     }];
 }
 
@@ -60,6 +69,28 @@
         [self.view addSubview:_adressView];
     }
     return _adressView;
+}
+
+- (DTBrowserTabView *)tabView{
+    if (!_tabView) {
+        _tabView = [[DTBrowserTabView alloc] init];
+        _tabView.delegate = self;
+        [self.view addSubview:_tabView];
+    }
+    return _tabView;
+}
+
+- (DTWebView *)webDTView{
+    if (!_webDTView) {
+        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+        
+        _webDTView = [[DTWebView alloc] initWithFrame:CGRectZero configuration:config];
+        _webDTView.UIDelegate = self;
+        _webDTView.navigationDelegate = self;
+        _webDTView.backgroundColor = [UIColor whiteColor];
+        [self.view addSubview:_webDTView];
+    }
+    return _webDTView;
 }
 
 @end
