@@ -25,7 +25,7 @@
 @property (nonatomic, strong) UIView *maskView;                         //灰色背景
 @property (nonatomic, strong) UIView *minddleView;                      //中间框
 @property (nonatomic, strong) UIView *scanLine;                         //扫描横线
-
+@property (nonatomic, strong) UIButton *photoButton;                    //相册
 
 @end
 
@@ -58,6 +58,11 @@
         make.left.equalTo(self.view).offset(50);
         make.right.equalTo(self.closeButton.mas_left);
         make.centerY.equalTo(self.closeButton);
+    }];
+    [self.photoButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self.view);
+        make.top.equalTo(self.minddleView.mas_bottom).offset(20);
+        make.width.height.mas_equalTo(40);
     }];
 }
 
@@ -99,6 +104,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+//打开相册
+- (void)clickPhotoButton{
+    if (![self isLibaryAuthStatusCorrect]) {
+        [self showPermissionAlert];
+        return;
+    }
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+}
 
 #pragma mark - AVCaptureMetadataOutputObjectsDelegate 捕获
 - (void)captureOutput:(AVCaptureOutput *)output didOutputMetadataObjects:(NSArray<__kindof AVMetadataObject *> *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
@@ -181,14 +194,6 @@
     }
     
     return YES;
-}
-
-- (void)openLibary{
-    if (![self isLibaryAuthStatusCorrect]) {
-        [self showPermissionAlert];
-        return;
-    }
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
 }
 
 #pragma mark - Alert
@@ -377,5 +382,17 @@
     }
     return _scanLine;
 }
+
+//相册
+- (UIButton *)photoButton{
+    if (!_photoButton) {
+        _photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_photoButton setImage:[UIImage imageNamed:@"scan_pict"] forState:UIControlStateNormal];
+        [_photoButton addTarget:self action:@selector(clickPhotoButton) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:_photoButton];
+    }
+    return _photoButton;
+}
+
 
 @end
