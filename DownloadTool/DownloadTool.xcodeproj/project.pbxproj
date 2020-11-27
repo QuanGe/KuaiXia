@@ -60,6 +60,7 @@
 		BC43626D2570C6BC006D1D83 /* DTPopBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43626C2570C6BC006D1D83 /* DTPopBaseController.m */; };
 		BC4362752570C7C7006D1D83 /* DTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362742570C7C7006D1D83 /* DTMenuViewController.m */; };
 		BC4362842570CA38006D1D83 /* DTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */; };
+		BC4362882570CE82006D1D83 /* DTHomeTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362872570CE82006D1D83 /* DTHomeTipView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,6 +174,8 @@
 		BC4362742570C7C7006D1D83 /* DTMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMenuViewController.m; sourceTree = "<group>"; };
 		BC4362822570CA38006D1D83 /* DTHomeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHomeCollectionCell.h; sourceTree = "<group>"; };
 		BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeCollectionCell.m; sourceTree = "<group>"; };
+		BC4362862570CE82006D1D83 /* DTHomeTipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHomeTipView.h; sourceTree = "<group>"; };
+		BC4362872570CE82006D1D83 /* DTHomeTipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeTipView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +329,8 @@
 			children = (
 				BC4361E6256E44DF006D1D83 /* DTHomeSearchView.h */,
 				BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */,
+				BC4362862570CE82006D1D83 /* DTHomeTipView.h */,
+				BC4362872570CE82006D1D83 /* DTHomeTipView.m */,
 				BC4362822570CA38006D1D83 /* DTHomeCollectionCell.h */,
 				BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */,
 			);
@@ -884,6 +889,7 @@
 				BC43612B256C9D85006D1D83 /* DTMineViewController.m in Sources */,
 				BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */,
 				BC4361FF256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m in Sources */,
+				BC4362882570CE82006D1D83 /* DTHomeTipView.m in Sources */,
 				BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */,
 				787EFD90256EA09200C4B211 /* DTBrowserTabView.m in Sources */,
 				BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */,

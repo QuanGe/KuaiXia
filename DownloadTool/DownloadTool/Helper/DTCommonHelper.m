@@ -179,4 +179,38 @@
 }
 
 
+
+/**根据时间获取问候*/
++ (NSString *)getHellowText{
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    int unit = NSCalendarUnitHour;
+    
+    //获得当前日期的年月日
+    NSDateComponents *nowCmps = [calendar components:unit fromDate:[NSDate date]];
+    NSInteger hour = nowCmps.hour;
+    
+    //判断时间
+    NSString *result;
+    if (hour < 6) {
+        result = @"凌晨好";
+    } else if (hour < 9) {
+        result = @"早上好";
+    } else if (hour < 12) {
+        result = @"上午好";
+    } else if (hour < 14) {
+        result = @"中午好";
+    } else if (hour < 17) {
+        result = @"下午好";
+    } else if (hour < 19) {
+        result = @"傍晚好";
+    } else if (hour < 22) {
+        result = @"晚上好";
+    } else {
+        result = @"夜里好";
+    }
+        
+    return result;
+}
+
 @end

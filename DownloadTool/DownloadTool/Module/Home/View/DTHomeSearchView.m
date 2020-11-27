@@ -29,7 +29,7 @@
 }
 
 - (void)setupViewUI{
-    self.backgroundColor = [UIColor whiteColor];
+    self.backgroundColor = kZIColor;
     [self.scanButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-20);
         make.width.height.mas_equalTo(35);
@@ -77,7 +77,6 @@
 - (UIView *)lineView{
     if (!_lineView) {
         _lineView = [[UIView alloc] init];
-        _lineView.backgroundColor = DTRGB(246, 246, 246);
         [self addSubview:_lineView];
     }
     return _lineView;

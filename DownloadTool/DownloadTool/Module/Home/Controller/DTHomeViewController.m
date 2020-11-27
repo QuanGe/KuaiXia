@@ -8,6 +8,7 @@
 
 #import "DTHomeViewController.h"
 #import "DTHomeSearchView.h"
+#import "DTHomeTipView.h"
 #import "DTHomeCollectionCell.h"
 #import "DTSearchViewController.h"
 #import "DTScanViewController.h"
@@ -15,6 +16,7 @@
 @interface DTHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) DTHomeSearchView *searchView;
+@property (nonatomic, strong) DTHomeTipView *tipHeadView;
 @property (nonatomic, strong) UICollectionView *homeCollectionView;
 
 @end
@@ -34,9 +36,14 @@
         make.left.top.right.equalTo(self.view);
         make.height.mas_equalTo(kSearchViewHeight);
     }];
+    [self.tipHeadView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.searchView.mas_bottom);
+        make.height.mas_equalTo(kHomeTipHeight);
+    }];
     [self.homeCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.searchView.mas_bottom);
+        make.top.equalTo(self.tipHeadView.mas_bottom);
     }];
 }
 
@@ -92,6 +99,14 @@
         [self.view addSubview:_searchView];
     }
     return _searchView;
+}
+
+- (DTHomeTipView *)tipHeadView{
+    if (!_tipHeadView) {
+        _tipHeadView = [[DTHomeTipView alloc] init];
+        [self.view addSubview:_tipHeadView];
+    }
+    return _tipHeadView;
 }
 
 - (UICollectionView *)homeCollectionView{

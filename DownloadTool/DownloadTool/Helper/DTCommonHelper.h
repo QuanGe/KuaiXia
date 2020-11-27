@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**判断是否为url*/
 + (BOOL)isUrl:(NSString*)url;
 
+/**根据时间获取问候*/
++ (NSString *)getHellowText;
+
 @end
 
 NS_ASSUME_NONNULL_END
