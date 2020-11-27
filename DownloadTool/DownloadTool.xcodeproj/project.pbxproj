@@ -40,7 +40,7 @@
 		BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361B9256DFD31006D1D83 /* DTTextView.m */; };
 		BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361BD256E012C006D1D83 /* DTOpenDocumentController.m */; };
 		BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */; };
-		BC4361CE256E2A8E006D1D83 /* DTSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361CD256E2A8E006D1D83 /* DTSettingController.m */; };
+		BC4361CE256E2A8E006D1D83 /* DTAboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361CD256E2A8E006D1D83 /* DTAboutController.m */; };
 		BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */; };
 		BC4361D7256E42AE006D1D83 /* DTWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361D6256E42AE006D1D83 /* DTWebView.m */; };
 		BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4361DB256E4362006D1D83 /* DTWebView+DTJS.m */; };
@@ -63,6 +63,8 @@
 		BC4362882570CE82006D1D83 /* DTHomeTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362872570CE82006D1D83 /* DTHomeTipView.m */; };
 		BC43628B2570E12D006D1D83 /* HomeDList.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC43628A2570E12D006D1D83 /* HomeDList.plist */; };
 		BC43629E2570ECEC006D1D83 /* DTScanAvailableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43629D2570ECEC006D1D83 /* DTScanAvailableHelper.m */; };
+		BC4362AC25711F1C006D1D83 /* DTMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362AB25711F1C006D1D83 /* DTMessageViewController.m */; };
+		BC4362B02571202C006D1D83 /* DTMineTableHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362AF2571202C006D1D83 /* DTMineTableHeadView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,8 +137,8 @@
 		BC4361C0256E21C9006D1D83 /* DTMineTableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMineTableCell.h; sourceTree = "<group>"; };
 		BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMineTableCell.m; sourceTree = "<group>"; };
 		BC4361C4256E2496006D1D83 /* DTMinePublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMinePublicHeader.h; sourceTree = "<group>"; };
-		BC4361CC256E2A8E006D1D83 /* DTSettingController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTSettingController.h; sourceTree = "<group>"; };
-		BC4361CD256E2A8E006D1D83 /* DTSettingController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTSettingController.m; sourceTree = "<group>"; };
+		BC4361CC256E2A8E006D1D83 /* DTAboutController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTAboutController.h; sourceTree = "<group>"; };
+		BC4361CD256E2A8E006D1D83 /* DTAboutController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTAboutController.m; sourceTree = "<group>"; };
 		BC4361D0256E2A98006D1D83 /* DTHelpViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHelpViewController.h; sourceTree = "<group>"; };
 		BC4361D1256E2A98006D1D83 /* DTHelpViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHelpViewController.m; sourceTree = "<group>"; };
 		BC4361D5256E42AE006D1D83 /* DTWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTWebView.h; sourceTree = "<group>"; };
@@ -181,6 +183,10 @@
 		BC43628A2570E12D006D1D83 /* HomeDList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HomeDList.plist; sourceTree = "<group>"; };
 		BC43629C2570ECEC006D1D83 /* DTScanAvailableHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTScanAvailableHelper.h; sourceTree = "<group>"; };
 		BC43629D2570ECEC006D1D83 /* DTScanAvailableHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTScanAvailableHelper.m; sourceTree = "<group>"; };
+		BC4362AA25711F1C006D1D83 /* DTMessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMessageViewController.h; sourceTree = "<group>"; };
+		BC4362AB25711F1C006D1D83 /* DTMessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMessageViewController.m; sourceTree = "<group>"; };
+		BC4362AE2571202C006D1D83 /* DTMineTableHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMineTableHeadView.h; sourceTree = "<group>"; };
+		BC4362AF2571202C006D1D83 /* DTMineTableHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMineTableHeadView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -297,13 +303,14 @@
 		BC436100256C9C89006D1D83 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BC4362A725711F0B006D1D83 /* Message */,
 				BC4362702570C7BD006D1D83 /* Menu */,
 				BC43625B257096CC006D1D83 /* Tab */,
 				BC4361DE256E44A4006D1D83 /* Search */,
 				BC436104256C9C89006D1D83 /* Browser */,
 				BC4361EA256E4DB8006D1D83 /* Scan */,
 				BC4361C9256E2A76006D1D83 /* Help */,
-				BC4361C6256E2A76006D1D83 /* Setting */,
+				BC4361C6256E2A76006D1D83 /* About */,
 				BC436101256C9C89006D1D83 /* Home */,
 				BC436107256C9C89006D1D83 /* Download */,
 				BC43610A256C9C89006D1D83 /* Mine */,
@@ -427,6 +434,8 @@
 			children = (
 				BC4361C0256E21C9006D1D83 /* DTMineTableCell.h */,
 				BC4361C1256E21C9006D1D83 /* DTMineTableCell.m */,
+				BC4362AE2571202C006D1D83 /* DTMineTableHeadView.h */,
+				BC4362AF2571202C006D1D83 /* DTMineTableHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -545,20 +554,20 @@
 			path = TextView;
 			sourceTree = "<group>";
 		};
-		BC4361C6256E2A76006D1D83 /* Setting */ = {
+		BC4361C6256E2A76006D1D83 /* About */ = {
 			isa = PBXGroup;
 			children = (
 				BC4361C7256E2A76006D1D83 /* Controller */,
 				BC4361C8256E2A76006D1D83 /* View */,
 			);
-			path = Setting;
+			path = About;
 			sourceTree = "<group>";
 		};
 		BC4361C7256E2A76006D1D83 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				BC4361CC256E2A8E006D1D83 /* DTSettingController.h */,
-				BC4361CD256E2A8E006D1D83 /* DTSettingController.m */,
+				BC4361CC256E2A8E006D1D83 /* DTAboutController.h */,
+				BC4361CD256E2A8E006D1D83 /* DTAboutController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -740,6 +749,31 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BC4362A725711F0B006D1D83 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BC4362A825711F0B006D1D83 /* Controller */,
+				BC4362A925711F0B006D1D83 /* View */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		BC4362A825711F0B006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4362AA25711F1C006D1D83 /* DTMessageViewController.h */,
+				BC4362AB25711F1C006D1D83 /* DTMessageViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC4362A925711F0B006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -873,8 +907,9 @@
 				BC436256256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m in Sources */,
 				BC4361AD256D2AE3006D1D83 /* DTProgressHUDHelper.m in Sources */,
 				BC436176256CD726006D1D83 /* DTDoownloadDBHelper.m in Sources */,
+				BC4362B02571202C006D1D83 /* DTMineTableHeadView.m in Sources */,
 				BC4360FA256BDE34006D1D83 /* DTGetVideoUrlHandle.m in Sources */,
-				BC4361CE256E2A8E006D1D83 /* DTSettingController.m in Sources */,
+				BC4361CE256E2A8E006D1D83 /* DTAboutController.m in Sources */,
 				BC436166256CC99A006D1D83 /* DTDownloadSession.m in Sources */,
 				BC43616A256CCDE8006D1D83 /* DTDownloadObject.m in Sources */,
 				BC436249256FB187006D1D83 /* DTBrowserViewController+DTTab.m in Sources */,
@@ -887,6 +922,7 @@
 				BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */,
 				BC4361BE256E012C006D1D83 /* DTOpenDocumentController.m in Sources */,
 				BC4361BA256DFD31006D1D83 /* DTTextView.m in Sources */,
+				BC4362AC25711F1C006D1D83 /* DTMessageViewController.m in Sources */,
 				BC436188256CFB75006D1D83 /* DTDownListController.m in Sources */,
 				BC436203256E7A1B006D1D83 /* DTSeatchHistoryModel.m in Sources */,
 				BC4361F5256E520D006D1D83 /* DTSearchToolView.m in Sources */,

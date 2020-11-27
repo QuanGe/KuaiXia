@@ -1,18 +1,18 @@
 //
-//  DTSettingController.m
+//  DTAboutController.m
 //  DownloadTool
 //
 //  Created by wangshuailong on 2020/11/25.
 //  Copyright © 2020 DownloadTool. All rights reserved.
 //
 
-#import "DTSettingController.h"
+#import "DTAboutController.h"
 
-@interface DTSettingController ()
+@interface DTAboutController ()
 
 @end
 
-@implementation DTSettingController
+@implementation DTAboutController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

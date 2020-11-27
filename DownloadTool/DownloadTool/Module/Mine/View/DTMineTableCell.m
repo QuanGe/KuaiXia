@@ -32,7 +32,7 @@
 
 
 + (CGFloat)getMineCellHeight{
-    return 55;
+    return 60;
 }
 
 + (instancetype)cellMineTableWithTable:(UITableView*)tableView{
@@ -68,7 +68,7 @@
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.lineView);
         make.centerY.equalTo(self.contentView);
-        make.width.height.mas_equalTo(25);
+        make.width.height.mas_equalTo(30);
     }];
     [self.textTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.rowImgView.mas_left).offset(-10);
@@ -107,7 +107,7 @@
     if (!_textTitleLabel) {
         _textTitleLabel = [[UILabel alloc] init];
         _textTitleLabel.textColor = [UIColor blackColor];
-        _textTitleLabel.font = [UIFont systemFontOfSize:15];
+        _textTitleLabel.font = [UIFont systemFontOfSize:17];
         [self.contentView addSubview:_textTitleLabel];
     }
     return _textTitleLabel;

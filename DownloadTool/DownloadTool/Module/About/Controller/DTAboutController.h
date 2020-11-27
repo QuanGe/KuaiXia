@@ -1,5 +1,5 @@
 //
-//  DTSettingController.h
+//  DTAboutController.h
 //  DownloadTool
 //
 //  Created by wangshuailong on 2020/11/25.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DTSettingController : DTBaseViewController
+@interface DTAboutController : DTBaseViewController
 
 @end
 

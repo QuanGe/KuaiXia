@@ -8,10 +8,12 @@
 
 #import "DTMineViewController.h"
 #import "DTMineTableCell.h"
+#import "DTMineTableHeadView.h"
 #import "DTMinePublicHeader.h"
 #import "DTHelpViewController.h"
-#import "DTSettingController.h"
+#import "DTAboutController.h"
 #import "DTDownListController.h"
+#import "DTMessageViewController.h"
 
 #define kCellICON   @"kCellICON"
 #define kCellTXT    @"kCellTXT"
@@ -20,7 +22,7 @@
 @interface DTMineViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *mineTableView;
-@property (nonatomic, strong) UIView *tableHeadView;
+@property (nonatomic, strong) DTMineTableHeadView *tableHeadView;
 @property (nonatomic, strong) NSArray *mineList;
 
 @end
@@ -30,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"我的";
+    self.navigationItem.title = @"";
     
     [self setupViewUI];
 }
@@ -65,11 +67,21 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 0.01;
+    return 15;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 5;
+    return 0.01;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 15)];
+    return view;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 0.01)];
+    return view;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -83,8 +95,13 @@
             [self.navigationController pushViewController:downVC animated:YES];
         }
             break;
-        case DTMineCellStatus_Setting: { //设置
-            DTSettingController *setVC = [[DTSettingController alloc] init];
+        case DTMineCellStatus_Message: { //消息
+            DTMessageViewController *messageVC = [[DTMessageViewController alloc] init];
+            [self.navigationController pushViewController:messageVC animated:YES];
+        }
+            break;
+        case DTMineCellStatus_About: { //关于
+            DTAboutController *setVC = [[DTAboutController alloc] init];
             [self.navigationController pushViewController:setVC animated:YES];
         }
             break;
@@ -132,10 +149,10 @@
     return _mineTableView;
 }
 
-- (UIView *)tableHeadView{
+- (DTMineTableHeadView *)tableHeadView{
     if (!_tableHeadView) {
-        _tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
-        //_tableHeadView.backgroundColor = [UIColor whiteColor];
+        _tableHeadView = [[DTMineTableHeadView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+        _tableHeadView.text = @"我的";
     }
     return _tableHeadView;
 }
@@ -145,12 +162,13 @@
         _mineList = @[
             @[
                 @{kCellICON:@"", kCellTXT:@"我的下载",  kCellCode:@(DTMineCellStatus_Download)},
+                @{kCellICON:@"", kCellTXT:@"我的消息",  kCellCode:@(DTMineCellStatus_Message)},
             ],
             @[
-                @{kCellICON:@"", kCellTXT:@"设置",     kCellCode:@(DTMineCellStatus_Setting)},
                 @{kCellICON:@"", kCellTXT:@"帮助中心",  kCellCode:@(DTMineCellStatus_Help)},
                 @{kCellICON:@"", kCellTXT:@"分享好友",  kCellCode:@(DTMineCellStatus_Shared)},
                 @{kCellICON:@"", kCellTXT:@"我要点赞",  kCellCode:@(DTMineCellStatus_Good)},
+                @{kCellICON:@"", kCellTXT:@"关于我们",  kCellCode:@(DTMineCellStatus_About)},
             ],
         ];
     }
