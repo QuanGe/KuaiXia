@@ -57,6 +57,9 @@
 		BC436256256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */; };
 		BC43626125709704006D1D83 /* DTMoreTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43626025709704006D1D83 /* DTMoreTabViewController.m */; };
 		BC43626525709723006D1D83 /* DTTabManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43626425709723006D1D83 /* DTTabManager.m */; };
+		BC43626D2570C6BC006D1D83 /* DTPopBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43626C2570C6BC006D1D83 /* DTPopBaseController.m */; };
+		BC4362752570C7C7006D1D83 /* DTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362742570C7C7006D1D83 /* DTMenuViewController.m */; };
+		BC4362842570CA38006D1D83 /* DTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -164,6 +167,12 @@
 		BC43626025709704006D1D83 /* DTMoreTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMoreTabViewController.m; sourceTree = "<group>"; };
 		BC43626325709723006D1D83 /* DTTabManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTTabManager.h; sourceTree = "<group>"; };
 		BC43626425709723006D1D83 /* DTTabManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTTabManager.m; sourceTree = "<group>"; };
+		BC43626B2570C6BC006D1D83 /* DTPopBaseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTPopBaseController.h; sourceTree = "<group>"; };
+		BC43626C2570C6BC006D1D83 /* DTPopBaseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTPopBaseController.m; sourceTree = "<group>"; };
+		BC4362732570C7C7006D1D83 /* DTMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMenuViewController.h; sourceTree = "<group>"; };
+		BC4362742570C7C7006D1D83 /* DTMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMenuViewController.m; sourceTree = "<group>"; };
+		BC4362822570CA38006D1D83 /* DTHomeCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHomeCollectionCell.h; sourceTree = "<group>"; };
+		BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeCollectionCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +289,7 @@
 		BC436100256C9C89006D1D83 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BC4362702570C7BD006D1D83 /* Menu */,
 				BC43625B257096CC006D1D83 /* Tab */,
 				BC4361DE256E44A4006D1D83 /* Search */,
 				BC436104256C9C89006D1D83 /* Browser */,
@@ -316,6 +326,8 @@
 			children = (
 				BC4361E6256E44DF006D1D83 /* DTHomeSearchView.h */,
 				BC4361E7256E44DF006D1D83 /* DTHomeSearchView.m */,
+				BC4362822570CA38006D1D83 /* DTHomeCollectionCell.h */,
+				BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -411,6 +423,7 @@
 		BC43610D256C9C89006D1D83 /* UICommon */ = {
 			isa = PBXGroup;
 			children = (
+				BC43626A2570C698006D1D83 /* Pop */,
 				BC4361D4256E4294006D1D83 /* WebView */,
 				BC4361B7256DFD22006D1D83 /* TextView */,
 				BC436132256C9F8A006D1D83 /* BaseController */,
@@ -680,6 +693,40 @@
 			path = Tab;
 			sourceTree = "<group>";
 		};
+		BC43626A2570C698006D1D83 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				BC43626B2570C6BC006D1D83 /* DTPopBaseController.h */,
+				BC43626C2570C6BC006D1D83 /* DTPopBaseController.m */,
+			);
+			path = Pop;
+			sourceTree = "<group>";
+		};
+		BC4362702570C7BD006D1D83 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				BC4362712570C7BD006D1D83 /* Controller */,
+				BC4362722570C7BD006D1D83 /* View */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		BC4362712570C7BD006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC4362732570C7C7006D1D83 /* DTMenuViewController.h */,
+				BC4362742570C7C7006D1D83 /* DTMenuViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC4362722570C7BD006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -800,6 +847,7 @@
 				BC436112256C9D17006D1D83 /* DTNavigationController.m in Sources */,
 				BC43611F256C9D67006D1D83 /* DTHomeViewController.m in Sources */,
 				BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */,
+				BC43626D2570C6BC006D1D83 /* DTPopBaseController.m in Sources */,
 				BC436252256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m in Sources */,
 				BC1FBDEE2564B0B000E89C37 /* AppDelegate.m in Sources */,
 				BC43617A256CE260006D1D83 /* DTDownloadHandle.m in Sources */,
@@ -819,6 +867,7 @@
 				BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */,
 				BC436172256CD033006D1D83 /* DTDownManager.m in Sources */,
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
+				BC4362842570CA38006D1D83 /* DTHomeCollectionCell.m in Sources */,
 				787EFD8B256E94C900C4B211 /* DTBrowserAdressView.m in Sources */,
 				BC436117256C9D2A006D1D83 /* DTTabBarController.m in Sources */,
 				BC436127256C9D7E006D1D83 /* DTDownloadViewController.m in Sources */,
@@ -839,6 +888,7 @@
 				787EFD90256EA09200C4B211 /* DTBrowserTabView.m in Sources */,
 				BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */,
 				BC4361B1256D2BC2006D1D83 /* AppDelegate+DTHUD.m in Sources */,
+				BC4362752570C7C7006D1D83 /* DTMenuViewController.m in Sources */,
 				BC1FBDFF2564B0B300E89C37 /* main.m in Sources */,
 				BC4361EF256E4DC5006D1D83 /* DTScanViewController.m in Sources */,
 			);

@@ -8,12 +8,14 @@
 
 #import "DTHomeViewController.h"
 #import "DTHomeSearchView.h"
+#import "DTHomeCollectionCell.h"
 #import "DTSearchViewController.h"
 #import "DTScanViewController.h"
 
-@interface DTHomeViewController ()
+@interface DTHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) DTHomeSearchView *searchView;
+@property (nonatomic, strong) UICollectionView *homeCollectionView;
 
 @end
 
@@ -32,7 +34,10 @@
         make.left.top.right.equalTo(self.view);
         make.height.mas_equalTo(kSearchViewHeight);
     }];
-    
+    [self.homeCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.equalTo(self.searchView.mas_bottom);
+    }];
 }
 
 #pragma mark - Click
@@ -48,6 +53,27 @@
     [self.navigationController pushViewController:scanVC animated:YES];
 }
 
+
+#pragma mark - UICollectionViewDelegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 5;
+}
+
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    DTHomeCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kDTHomeCollectionCellKey forIndexPath:indexPath];
+    
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    CGFloat width = SCREEN_WIDTH - 9;
+    return CGSizeMake(width/3, width/3);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(3, 3, 3, 3);
+}
 
 
 #pragma mark - Lazy
@@ -66,6 +92,24 @@
         [self.view addSubview:_searchView];
     }
     return _searchView;
+}
+
+- (UICollectionView *)homeCollectionView{
+    if (!_homeCollectionView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 2;
+        flowLayout.minimumInteritemSpacing = 0;
+        
+        _homeCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _homeCollectionView.delegate = self;
+        _homeCollectionView.dataSource = self;
+        _homeCollectionView.backgroundColor = kBackViewColor;
+        
+        [_homeCollectionView registerClass:[DTHomeCollectionCell class] forCellWithReuseIdentifier:kDTHomeCollectionCellKey];
+        
+        [self.view addSubview:_homeCollectionView];
+    }
+    return _homeCollectionView;
 }
 
 @end

@@ -15,7 +15,7 @@
 @implementation DTTabManager
 
 + (instancetype)shareInstance{
-    static DTTabManager _manager = nil;
+    static DTTabManager *_manager = nil;
     static dispatch_once_t predicate;
     dispatch_once(&predicate, ^{
         _manager = [[DTTabManager alloc] init];

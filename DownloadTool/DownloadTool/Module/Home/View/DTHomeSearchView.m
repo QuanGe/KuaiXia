@@ -15,6 +15,7 @@
 @property (nonatomic, strong) UILabel *searchTxtLabel;
 @property (nonatomic, strong) UIButton *searMaskButton;
 @property (nonatomic, strong) UIButton *scanButton;
+@property (nonatomic, strong) UIView *lineView;
 
 @end
 
@@ -52,6 +53,10 @@
     [self.searMaskButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.searchMaskView);
     }];
+    [self.lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 #pragma mark - Click
@@ -69,6 +74,15 @@
 }
 
 #pragma mark - Lazy
+- (UIView *)lineView{
+    if (!_lineView) {
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = DTRGB(246, 246, 246);
+        [self addSubview:_lineView];
+    }
+    return _lineView;
+}
+
 - (UIView *)searchMaskView{
     if (!_searchMaskView) {
         _searchMaskView = [[UIView alloc] init];
