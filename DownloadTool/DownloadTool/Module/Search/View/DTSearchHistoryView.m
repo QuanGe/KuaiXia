@@ -26,6 +26,7 @@
 }
 
 - (void)setupHisViewUI{
+    self.backgroundColor = [UIColor whiteColor];
     [self.historyTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
@@ -171,6 +172,31 @@
         [self.contentView addSubview:_rowImgView];
     }
     return _rowImgView;
+}
+
+@end
+
+
+
+@interface DTSearchSectionView()
+
+@property (nonatomic, strong) UILabel *textTipLabel;
+@property (nonatomic, strong) UIButton *clearButton;
+
+@end
+
+@implementation DTSearchSectionView
+
+- (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]) {
+        [self setupSectionViewUI];
+    }
+    return self;
+}
+
+
+- (void)setupSectionViewUI{
+    
 }
 
 @end

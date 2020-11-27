@@ -12,9 +12,6 @@
 
 @interface DTBrowserViewController () <DTBrowserAdressViewDelegate, DTBrowserTabViewDelegate, WKUIDelegate, WKNavigationDelegate>
 
-@property (nonatomic, strong) DTBrowserAdressView *adressView;
-@property (nonatomic, strong) DTBrowserTabView *tabView;
-
 @end
 
 @implementation DTBrowserViewController
@@ -165,14 +162,49 @@
 
 - (DTWebView *)webDTView{
     if (!_webDTView) {
-        WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
-        
-        _webDTView = [[DTWebView alloc] initWithFrame:CGRectZero configuration:config];
+        _webDTView = [[DTWebView alloc] initWithFrame:CGRectZero configuration:[self getWKWebViewConfiguration]];
         _webDTView.UIDelegate = self;
         _webDTView.navigationDelegate = self;
+        _webDTView.customUserAgent = @"Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.5 Mobile/15E148 Safari/604.1";
         _webDTView.backgroundColor = [UIColor whiteColor];
     }
     return _webDTView;
 }
+
+- (WKWebViewConfiguration*)getWKWebViewConfiguration{
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.preferences = [self getConfigWKPreferences];
+    
+    //是使用h5的视频播放器在线播放, 还是使用原生播放器全屏播放
+    config.allowsInlineMediaPlayback = YES;
+    //设置视频是否需要用户手动播放  设置为NO则会允许自动播放
+    config.mediaTypesRequiringUserActionForPlayback = YES;
+    //设置是否允许画中画技术 在特定设备上有效
+    config.allowsPictureInPictureMediaPlayback = YES;
+    //设置请求的User-Agent信息中应用程序名称 iOS9后可用
+    config.applicationNameForUserAgent = @"KuaiZai";
+    
+    //这个类主要用来做native与JavaScript的交互管理
+    WKUserContentController * wkUController = [[WKUserContentController alloc] init];
+    
+    config.userContentController = wkUController;
+    
+    return config;
+}
+
+
+- (WKPreferences*)getConfigWKPreferences{
+    WKPreferences *preference = [[WKPreferences alloc]init];
+    
+//    //最小字体大小 当将javaScriptEnabled属性设置为NO时，可以看到明显的效果
+//    preference.minimumFontSize = 0;
+//    //设置是否支持javaScript 默认是支持的
+//    preference.javaScriptEnabled = YES;
+//    //在iOS上默认为NO，表示是否允许不经过用户交互由javaScript自动打开窗口
+//    preference.javaScriptCanOpenWindowsAutomatically = YES;
+    
+    return preference;
+}
+
 
 @end

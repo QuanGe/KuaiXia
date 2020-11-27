@@ -33,4 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface DTSearchSectionView : UIView
+
+@end
+
 NS_ASSUME_NONNULL_END

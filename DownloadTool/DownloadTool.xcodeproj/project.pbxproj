@@ -55,6 +55,8 @@
 		BC436249256FB187006D1D83 /* DTBrowserViewController+DTTab.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436248256FB187006D1D83 /* DTBrowserViewController+DTTab.m */; };
 		BC436252256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436251256FB657006D1D83 /* DTBrowserViewController+DTNavDelegate.m */; };
 		BC436256256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */; };
+		BC43626125709704006D1D83 /* DTMoreTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43626025709704006D1D83 /* DTMoreTabViewController.m */; };
+		BC43626525709723006D1D83 /* DTTabManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43626425709723006D1D83 /* DTTabManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +160,10 @@
 		BC436254256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DTBrowserViewController+DTUIDelegate.h"; sourceTree = "<group>"; };
 		BC436255256FB66D006D1D83 /* DTBrowserViewController+DTUIDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DTBrowserViewController+DTUIDelegate.m"; sourceTree = "<group>"; };
 		BC436258256FC8C4006D1D83 /* DTBrowserPublicHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTBrowserPublicHeader.h; sourceTree = "<group>"; };
+		BC43625F25709704006D1D83 /* DTMoreTabViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTMoreTabViewController.h; sourceTree = "<group>"; };
+		BC43626025709704006D1D83 /* DTMoreTabViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTMoreTabViewController.m; sourceTree = "<group>"; };
+		BC43626325709723006D1D83 /* DTTabManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTTabManager.h; sourceTree = "<group>"; };
+		BC43626425709723006D1D83 /* DTTabManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTTabManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +253,7 @@
 		BC4360FD256C9C89006D1D83 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				BC43625E257096E5006D1D83 /* Tab */,
 				BC43615E256CB005006D1D83 /* Download */,
 				BC43615C256CAFF6006D1D83 /* GetUrlHandle */,
 			);
@@ -273,6 +280,7 @@
 		BC436100256C9C89006D1D83 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				BC43625B257096CC006D1D83 /* Tab */,
 				BC4361DE256E44A4006D1D83 /* Search */,
 				BC436104256C9C89006D1D83 /* Browser */,
 				BC4361EA256E4DB8006D1D83 /* Scan */,
@@ -638,6 +646,40 @@
 			path = DB;
 			sourceTree = "<group>";
 		};
+		BC43625B257096CC006D1D83 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				BC43625D257096E5006D1D83 /* Controller */,
+				BC43625C257096E5006D1D83 /* View */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
+		BC43625C257096E5006D1D83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC43625D257096E5006D1D83 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BC43625F25709704006D1D83 /* DTMoreTabViewController.h */,
+				BC43626025709704006D1D83 /* DTMoreTabViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC43625E257096E5006D1D83 /* Tab */ = {
+			isa = PBXGroup;
+			children = (
+				BC43626325709723006D1D83 /* DTTabManager.h */,
+				BC43626425709723006D1D83 /* DTTabManager.m */,
+			);
+			path = Tab;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -753,6 +795,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC43618C256CFBDE006D1D83 /* DTDownloadTableCell.m in Sources */,
+				BC43626525709723006D1D83 /* DTTabManager.m in Sources */,
+				BC43626125709704006D1D83 /* DTMoreTabViewController.m in Sources */,
 				BC436112256C9D17006D1D83 /* DTNavigationController.m in Sources */,
 				BC43611F256C9D67006D1D83 /* DTHomeViewController.m in Sources */,
 				BC4361D2256E2A98006D1D83 /* DTHelpViewController.m in Sources */,
