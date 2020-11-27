@@ -9,8 +9,18 @@
 #import "DTBaseViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@class DTScanViewController;
+@protocol DTScanViewControllerDelegate <NSObject>
+
+@optional
+- (void)pickUpMessage:(NSString *)message;
+
+@end
+
 
 @interface DTScanViewController : DTBaseViewController
+
+@property (nonatomic, weak) id <DTScanViewControllerDelegate> delegate;
 
 @end
 

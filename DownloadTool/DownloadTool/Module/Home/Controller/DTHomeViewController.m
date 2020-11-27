@@ -12,8 +12,9 @@
 #import "DTHomeCollectionCell.h"
 #import "DTSearchViewController.h"
 #import "DTScanViewController.h"
+#import "DTBrowserViewController.h"
 
-@interface DTHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface DTHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DTScanViewControllerDelegate>
 
 @property (nonatomic, strong) DTHomeSearchView *searchView;
 @property (nonatomic, strong) DTHomeTipView *tipHeadView;
@@ -57,9 +58,16 @@
 
 - (void)clickScanButton{
     DTScanViewController *scanVC = [[DTScanViewController alloc] init];
+    scanVC.delegate = self;
     [self.navigationController pushViewController:scanVC animated:YES];
 }
 
+#pragma mark - DTScanViewControllerDelegate
+- (void)pickUpMessage:(NSString *)message{
+    DTBrowserViewController *webVC = [[DTBrowserViewController alloc] init];
+    [self.navigationController pushViewController:webVC animated:YES];
+    [webVC openUrl:message];
+}
 
 #pragma mark - UICollectionViewDelegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{

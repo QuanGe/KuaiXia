@@ -36,6 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**根据时间获取问候*/
 + (NSString *)getHellowText;
 
+/**识别二维码*/
++ (NSString *)messageFromQRCodeImage:(UIImage *)image;
+
 @end
 
 NS_ASSUME_NONNULL_END

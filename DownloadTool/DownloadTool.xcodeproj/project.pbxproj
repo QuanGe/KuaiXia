@@ -61,6 +61,8 @@
 		BC4362752570C7C7006D1D83 /* DTMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362742570C7C7006D1D83 /* DTMenuViewController.m */; };
 		BC4362842570CA38006D1D83 /* DTHomeCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */; };
 		BC4362882570CE82006D1D83 /* DTHomeTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC4362872570CE82006D1D83 /* DTHomeTipView.m */; };
+		BC43628B2570E12D006D1D83 /* HomeDList.plist in Resources */ = {isa = PBXBuildFile; fileRef = BC43628A2570E12D006D1D83 /* HomeDList.plist */; };
+		BC43629E2570ECEC006D1D83 /* DTScanAvailableHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BC43629D2570ECEC006D1D83 /* DTScanAvailableHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +178,9 @@
 		BC4362832570CA38006D1D83 /* DTHomeCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeCollectionCell.m; sourceTree = "<group>"; };
 		BC4362862570CE82006D1D83 /* DTHomeTipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTHomeTipView.h; sourceTree = "<group>"; };
 		BC4362872570CE82006D1D83 /* DTHomeTipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTHomeTipView.m; sourceTree = "<group>"; };
+		BC43628A2570E12D006D1D83 /* HomeDList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HomeDList.plist; sourceTree = "<group>"; };
+		BC43629C2570ECEC006D1D83 /* DTScanAvailableHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTScanAvailableHelper.h; sourceTree = "<group>"; };
+		BC43629D2570ECEC006D1D83 /* DTScanAvailableHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTScanAvailableHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +314,7 @@
 		BC436101256C9C89006D1D83 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				BC43628A2570E12D006D1D83 /* HomeDList.plist */,
 				BC436102256C9C89006D1D83 /* Controller */,
 				BC436103256C9C89006D1D83 /* View */,
 			);
@@ -481,6 +487,8 @@
 			children = (
 				BC436160256CB08D006D1D83 /* DTCommonHelper.h */,
 				BC436161256CB08D006D1D83 /* DTCommonHelper.m */,
+				BC43629C2570ECEC006D1D83 /* DTScanAvailableHelper.h */,
+				BC43629D2570ECEC006D1D83 /* DTScanAvailableHelper.m */,
 				BC4361AB256D2AE3006D1D83 /* DTProgressHUDHelper.h */,
 				BC4361AC256D2AE3006D1D83 /* DTProgressHUDHelper.m */,
 			);
@@ -793,6 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC1FBDFC2564B0B300E89C37 /* LaunchScreen.storyboard in Resources */,
+				BC43628B2570E12D006D1D83 /* HomeDList.plist in Resources */,
 				BC1FBDF92564B0B300E89C37 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -890,6 +899,7 @@
 				BC4361DC256E4362006D1D83 /* DTWebView+DTJS.m in Sources */,
 				BC4361FF256E79A5006D1D83 /* DTSeatchHistoryDBHelper.m in Sources */,
 				BC4362882570CE82006D1D83 /* DTHomeTipView.m in Sources */,
+				BC43629E2570ECEC006D1D83 /* DTScanAvailableHelper.m in Sources */,
 				BC436199256D0467006D1D83 /* UIImage+Utility.m in Sources */,
 				787EFD90256EA09200C4B211 /* DTBrowserTabView.m in Sources */,
 				BC4361E3256E44BF006D1D83 /* DTSearchViewController.m in Sources */,

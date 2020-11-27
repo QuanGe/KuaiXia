@@ -213,4 +213,27 @@
     return result;
 }
 
+
+//识别二维码
++ (NSString *)messageFromQRCodeImage:(UIImage *)image{
+    if (!image) {
+        return nil;
+    }
+    //创建上下文
+    CIContext *context = [CIContext contextWithOptions:nil];
+    //识别类型设置为二维码，精度设为高
+    CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:context options:@{CIDetectorAccuracy:CIDetectorAccuracyHigh}];
+    //转换image
+    CIImage *ciImage = [CIImage imageWithCGImage:image.CGImage];
+    //获取识别结果
+    NSArray *features = [detector featuresInImage:ciImage];
+    
+    if (features.count == 0) {
+        return nil;
+    }
+    
+    CIQRCodeFeature *feature = features.firstObject;
+    return feature.messageString;
+}
+
 @end
