@@ -18,6 +18,7 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
     DTTabCode_Home,       //首页
     DTTabCode_More,       //多标签
     DTTabCode_Menu,       //菜单
+    DTTabCode_Screen,     //截屏
 };
 
 #define kTagValue 7896
@@ -103,6 +104,10 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
             [self clickMenuButton];
         }
             break;
+        case DTTabCode_Screen: {
+            [self clickScreenButton];
+        }
+            break;
         default:
             break;
     }
@@ -131,6 +136,11 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
 - (void)clickMenuButton{
     if ([self.delegate respondsToSelector:@selector(tabMenuTab:)]) {
         [self.delegate tabMenuTab:self];
+    }
+}
+- (void)clickScreenButton{
+    if ([self.delegate respondsToSelector:@selector(tabScreenTab:)]) {
+        [self.delegate tabScreenTab:self];
     }
 }
 
@@ -163,8 +173,9 @@ typedef NS_OPTIONS(NSInteger, DTTabCode){
         _buttonList = @[
             @{kCellIMG:@"browser_left",  kCellCODE:@(DTTabCode_Left)},
             @{kCellIMG:@"browser_right", kCellCODE:@(DTTabCode_Right)},
-            @{kCellIMG:@"browser_home",  kCellCODE:@(DTTabCode_Home)},
-            @{kCellIMG:@"browser_more",  kCellCODE:@(DTTabCode_More)},
+            //@{kCellIMG:@"browser_home",  kCellCODE:@(DTTabCode_Home)},
+//            @{kCellIMG:@"browser_more",  kCellCODE:@(DTTabCode_More)},
+            @{kCellIMG:@"browser_screen",  kCellCODE:@(DTTabCode_Screen)},
             @{kCellIMG:@"browser_menu",  kCellCODE:@(DTTabCode_Menu)},
         ];
     }

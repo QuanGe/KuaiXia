@@ -70,7 +70,7 @@
 
 //刷新数据
 - (void)updateData{
-    NSArray *list = [[DTDoownloadDBHelper sharedDB] getLoadingItems];
+    NSArray *list = [[DTDoownloadDBHelper sharedDownDB] getLoadingItems];
     self.downListM = [NSMutableArray arrayWithArray:list];
     [self.downTableView reloadData];
     [self showMsgImgView];

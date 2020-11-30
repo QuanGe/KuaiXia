@@ -122,7 +122,7 @@ const static CGFloat unit = 1048576.;
     
     //判断model中的大小是否小于0，小于，去数据库中查找文件，获取大小
     if (self.itemModel.downloadTotleSize <= 0) {
-        DTDownloadModel *model = [[DTDoownloadDBHelper sharedDB] getSelModelUrl:self.itemModel.downloadUrl];
+        DTDownloadModel *model = [[DTDoownloadDBHelper sharedDownDB] getSelModelUrl:self.itemModel.downloadUrl];
         if (model.downloadTotleSize > 0) {
             self.itemModel.downloadTotleSize = model.downloadTotleSize;
         }

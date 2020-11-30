@@ -75,7 +75,7 @@
     }
     
     //保存历史记录
-    [[DTSeatchHistoryDBHelper sharedDB] saveItem:model];
+    [[DTSeatchHistoryDBHelper sharedSearchDB] saveItem:model];
     
     //打开url
     if (self.parsentVC) {

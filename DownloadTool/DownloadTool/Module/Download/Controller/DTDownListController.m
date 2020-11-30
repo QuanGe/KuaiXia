@@ -49,7 +49,7 @@
 }
 
 - (void)updateListData{
-    NSArray *list = [[DTDoownloadDBHelper sharedDB] getSucessItems];
+    NSArray *list = [[DTDoownloadDBHelper sharedDownDB] getSucessItems];
     self.listArrM = [NSMutableArray arrayWithArray:list];
     
     [self.listTableView reloadData];

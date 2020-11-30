@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DTDoownloadDBHelper : NSObject
 
-+ (instancetype)sharedDB;
++ (instancetype)sharedDownDB;
 
 /**获取全部*/
 - (NSArray *)getAllItems;

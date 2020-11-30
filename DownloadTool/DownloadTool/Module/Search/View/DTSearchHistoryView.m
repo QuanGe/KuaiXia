@@ -77,7 +77,7 @@
 
 - (NSArray *)hisyoryList{
     if (!_hisyoryList) {
-        _hisyoryList = [[DTSeatchHistoryDBHelper sharedDB] getAllItems];
+        _hisyoryList = [[DTSeatchHistoryDBHelper sharedSearchDB] getAllItems];
     }
     return _hisyoryList;
 }

@@ -7,6 +7,7 @@
 //
 
 #import <WebKit/WebKit.h>
+#import "WKWebView+DTShot.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

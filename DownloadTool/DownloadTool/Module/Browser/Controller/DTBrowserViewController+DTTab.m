@@ -9,6 +9,10 @@
 #import "DTBrowserViewController+DTTab.h"
 #import "DTMenuViewController.h"
 #import "DTMoreTabViewController.h"
+#import "DTHistoryViewController.h"
+#import "DTNavigationController.h"
+#import <Photos/Photos.h>
+#import "DTProgressHUDHelper.h"
 
 @implementation DTBrowserViewController (DTTab)
 
@@ -38,10 +42,38 @@
     [self presentViewController:tabVC animated:YES completion:nil];
 }
 
-//菜单
+//菜单->历史记录
 - (void)tabMenuTab:(DTBrowserTabView *)tabView{
-    DTMenuViewController *menuVC = [[DTMenuViewController alloc] init];
-    [self presentViewController:menuVC animated:YES completion:nil];
+    DTHistoryViewController *historyVC = [[DTHistoryViewController alloc] init];
+    
+    __weak __typeof(self) weakSelf = self;
+    historyVC.selHistoryBlock = ^(NSString * _Nonnull url) {
+        [weakSelf openUrl:url];
+    };
+    
+    DTNavigationController *navVC = [[DTNavigationController alloc] initWithRootViewController:historyVC];
+    [self presentViewController:navVC animated:YES completion:nil];
+}
+
+//web页截图
+- (void)tabScreenTab:(DTBrowserTabView *)tabView{
+//    [DTProgressHUDHelper show];
+//    __weak __typeof(self) weakSelf = self;
+//    [self.webDTView snapContentWithCompletion:^(UIImage * _Nonnull snapImg) {
+//        [weakSelf saveScreenImage:snapImg];
+//    }];
+}
+
+//保存图片
+- (void)saveScreenImage:(UIImage *)image{
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(completedWithImage:error:context:), NULL);
+}
+
+- (void)completedWithImage:(UIImage *)image error:(NSError *)error context:(void *)contextInfo{
+    [DTProgressHUDHelper dissMiss];
+    NSString *toast = (!image || error)? [NSString stringWithFormat:@"保存图片失败 , 错误：%@",error] : @"保存图片成功";
+    NSLog(@"%@",toast);
+    [DTProgressHUDHelper showMessage:toast];
 }
 
 @end

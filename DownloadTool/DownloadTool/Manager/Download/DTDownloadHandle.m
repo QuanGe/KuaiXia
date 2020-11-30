@@ -139,7 +139,7 @@
 
 //开始下载
 + (void)startDownList{
-    NSArray *list = [[DTDoownloadDBHelper sharedDB] getAllItems];
+    NSArray *list = [[DTDoownloadDBHelper sharedDownDB] getAllItems];
     for (DTDownloadModel *model in list) {
         if (model.downloadStatus != DTWSLDownLoad_Complete) {
             NSLog(@"开始下载: %@", model.downloadFileName);

@@ -7,21 +7,16 @@
 //
 
 #import "DTDoownloadDBHelper.h"
-#import <YTKKeyValueStore/YTKKeyValueStore.h>
-#import <YYKit/YYKit.h>
+#import "DTDBManager.h"
 
-#define DBName_DownloadHistory    @"DownloadHistory.db"
 #define TBName_DownloadHistory    @"DownloadHistory_table"
 
-@interface DTDoownloadDBHelper(){
-    YTKKeyValueStore *_store;
-}
-
+@interface DTDoownloadDBHelper()
 @end
 
 @implementation DTDoownloadDBHelper
 
-+ (instancetype)sharedDB {
++ (instancetype)sharedDownDB {
     static DTDoownloadDBHelper *db;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -31,10 +26,8 @@
     return db;
 }
 
-- (void)openDB {
-    NSString *path = [NSString stringWithFormat:@"%@/%@", [self hasHideFile], DBName_DownloadHistory];
-    _store = [[YTKKeyValueStore alloc] initDBWithName:path];
-    [_store createTableWithName:TBName_DownloadHistory];
+- (void)openDB{
+    [[DTDBManager sharedDTDB] openDBTableName:TBName_DownloadHistory];
 }
 
 #pragma mark - DB
@@ -42,25 +35,23 @@
 - (void)saveItem:(DTDownloadModel *)item{
     NSDictionary *dic = [item modelToJSONObject];
     if (dic && item.downloadUrl.length > 0) {
-        [_store putObject:dic withId:item.downloadUrl intoTable:TBName_DownloadHistory];
+        [[DTDBManager sharedDTDB] saveItem:dic key:item.downloadUrl tableName:TBName_DownloadHistory];
     }
 }
 
 //删除
 - (void)deleteItem:(DTDownloadModel *)item{
-    [_store deleteObjectById:item.downloadUrl fromTable:TBName_DownloadHistory];
+    [[DTDBManager sharedDTDB] deleteItemKey:item.downloadUrl tableName:TBName_DownloadHistory];
 }
 
 //删除全部
 - (void)deleteAllItem{
-    [_store clearTable:TBName_DownloadHistory];
+    [[DTDBManager sharedDTDB] deleteAllItemTableName:TBName_DownloadHistory];
 }
 
 //获取全部
 - (NSArray *)getAllItems {
-    NSArray *arr = [_store getAllItemsFromTable:TBName_DownloadHistory];
-    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:arr];
-    NSArray *reverseArr = [[tmpArr reverseObjectEnumerator] allObjects];
+    NSArray *reverseArr = [[DTDBManager sharedDTDB] getAllItemsTableName:TBName_DownloadHistory];
     
     NSMutableArray *arrM = [NSMutableArray array];
     for (YTKKeyValueItem *yyItem in reverseArr) {
@@ -71,12 +62,15 @@
     return arrM.copy;
 }
 
+//获取制定的
+- (DTDownloadModel*)getSelModelUrl:(NSString*)downmodelUrl{
+    NSDictionary *dict = [[DTDBManager sharedDTDB] getSelectKey:downmodelUrl tableName:TBName_DownloadHistory];
+    return [DTDownloadModel modelWithDictionary:dict];
+}
 
 /**获取下载完的*/
 - (NSArray *)getSucessItems{
-    NSArray *arr = [_store getAllItemsFromTable:TBName_DownloadHistory];
-    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:arr];
-    NSArray *reverseArr = [[tmpArr reverseObjectEnumerator] allObjects];
+    NSArray *reverseArr = [[DTDBManager sharedDTDB] getAllItemsTableName:TBName_DownloadHistory];
     
     NSMutableArray *arrM = [NSMutableArray array];
     for (YTKKeyValueItem *yyItem in reverseArr) {
@@ -91,10 +85,7 @@
 
 /**获取非下载完的*/
 - (NSArray *)getLoadingItems{
-    NSArray *arr = [_store getAllItemsFromTable:TBName_DownloadHistory];
-    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:arr];
-    NSArray *reverseArr = [[tmpArr reverseObjectEnumerator] allObjects];
-    
+    NSArray *reverseArr = [[DTDBManager sharedDTDB] getAllItemsTableName:TBName_DownloadHistory];
     
     NSMutableArray *arrM = [NSMutableArray array];
     for (YTKKeyValueItem *yyItem in reverseArr) {
@@ -108,13 +99,6 @@
     return arrM.copy;
 }
 
-
-
-//获取制定的
-- (DTDownloadModel*)getSelModelUrl:(NSString*)downmodelUrl{
-    NSDictionary *dict = [_store getObjectById:downmodelUrl fromTable:TBName_DownloadHistory];
-    return [DTDownloadModel modelWithDictionary:dict];
-}
 
 #pragma mark - Helper
 //下载文件夹路径

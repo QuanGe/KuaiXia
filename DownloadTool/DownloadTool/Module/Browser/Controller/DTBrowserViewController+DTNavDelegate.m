@@ -7,6 +7,7 @@
 //
 
 #import "DTBrowserViewController+DTNavDelegate.h"
+#import "DTHistoryDBHelper.h"
 
 @implementation DTBrowserViewController (DTNavDelegate)
 
@@ -42,6 +43,10 @@
 //MARK: - 加载完成
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     
+    //历史记录
+    if (self.webUrl.absoluteString.length > 0 && self.webTitle.length > 0) {
+        [[DTHistoryDBHelper sharedHistoryDB] saveUrl:self.webUrl.absoluteString title:self.webTitle];
+    }
 }
 
 //MARK: - 当Web视图正在加载内容时发生错误时调用

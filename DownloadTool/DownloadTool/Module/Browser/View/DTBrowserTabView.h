@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tabHomeTab:(DTBrowserTabView*)tabView;
 - (void)tabMoreTab:(DTBrowserTabView*)tabView;
 - (void)tabMenuTab:(DTBrowserTabView*)tabView;
+- (void)tabScreenTab:(DTBrowserTabView*)tabView;
 
 @end
 

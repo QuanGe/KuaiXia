@@ -1,19 +1,19 @@
 //
-//  DTSeatchHistoryDBHelper.h
+//  DTHistoryDBHelper.h
 //  DownloadTool
 //
-//  Created by wangshuailong on 2020/11/25.
+//  Created by wangshuailong on 2020/11/30.
 //  Copyright © 2020 DownloadTool. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "DTSeatchHistoryModel.h"
+#import "DTHistoryModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DTSeatchHistoryDBHelper : NSObject
+@interface DTHistoryDBHelper : NSObject
 
-+ (instancetype)sharedSearchDB;
++ (instancetype)sharedHistoryDB;
 
 /**获取全部*/
 - (NSArray *)getAllItems;
@@ -22,10 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteAllItem;
 
 /**保存*/
-- (void)saveItem:(DTSeatchHistoryModel *)item;
+- (void)saveUrl:(NSString*)url title:(NSString*)title;
 
 /**删除*/
-- (void)deleteItem:(DTSeatchHistoryModel *)item;
+- (void)deleteItem:(DTHistoryModel *)item;
 
 @end
 

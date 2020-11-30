@@ -93,7 +93,7 @@
     if (self.downModel) {
         self.downModel.downloadStatus = DTWSLDownLoad_Pause;
         self.downModel.downloadAlreadySize = [self.downloadTask currentFileSize];
-        [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+        [[DTDoownloadDBHelper sharedDownDB] saveItem:self.downModel];
     }
     
     //
@@ -121,7 +121,7 @@
     }
     
     //更新数据
-    [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+    [[DTDoownloadDBHelper sharedDownDB] saveItem:self.downModel];
     
     //判断是否正在下载
     return self.downModel.downloadStatus == DTWSLDownLoad_Loading;
@@ -134,7 +134,7 @@
     }
     
     //根据url查找是否已经存在，没有就新建
-    DTDownloadModel *model = [[DTDoownloadDBHelper sharedDB] getSelModelUrl:self.downloadUrl];
+    DTDownloadModel *model = [[DTDoownloadDBHelper sharedDownDB] getSelModelUrl:self.downloadUrl];
     if (model) {
         model.downloadStatus = DTWSLDownLoad_Pause;
         model.downloadCookie = self.cookie;
@@ -148,7 +148,7 @@
         model.downloadFileName  = self.fileName;
     }
     //保存
-    [[DTDoownloadDBHelper sharedDB] saveItem:model];
+    [[DTDoownloadDBHelper sharedDownDB] saveItem:model];
     self.downModel = model;
     
     return YES;
@@ -170,7 +170,7 @@
     self.downModel.downloadTotleSize = fileSize;
     self.downModel.downloadStatus = DTWSLDownLoad_Loading;
     
-    [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+    [[DTDoownloadDBHelper sharedDownDB] saveItem:self.downModel];
 }
 //返回数据
 - (void)didReceiveData:(NSURLSessionDataTask *)task withFileSize:(long long)fileSize withSpeed:(double)speed{
@@ -182,7 +182,7 @@
 - (void)failedDownload:(NSURLSessionTask *)task withFileSize:(long long)fileSize{
     self.downModel.downloadStatus = DTWSLDownLoad_Failed;
     self.downModel.downloadAlreadySize = fileSize;
-    [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+    [[DTDoownloadDBHelper sharedDownDB] saveItem:self.downModel];
     
     
     //下载失败，回调，并从任务中移除
@@ -225,7 +225,7 @@
             self.downModel.downloadAlreadySize = self.fileTotalSize;
             self.downModel.downloadStatus = DTWSLDownLoad_Complete;
             self.downModel.downloadSavePath = [NSString stringWithFormat:@"%@%@", newPath, self.fileName];
-            [[DTDoownloadDBHelper sharedDB] saveItem:self.downModel];
+            [[DTDoownloadDBHelper sharedDownDB] saveItem:self.downModel];
             
             //下载完成后，回调，并从任务中移除
             [self.manager removeDownloadTask:self];

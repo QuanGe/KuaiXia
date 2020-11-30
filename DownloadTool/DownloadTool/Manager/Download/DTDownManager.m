@@ -50,7 +50,7 @@
 
 // 根据url判断是否已下载
 - (BOOL)hasDownload:(NSString *)downloadUrl{
-    DTDownloadModel *model = [[DTDoownloadDBHelper sharedDB] getSelModelUrl:downloadUrl];
+    DTDownloadModel *model = [[DTDoownloadDBHelper sharedDownDB] getSelModelUrl:downloadUrl];
     if (model) {
         return YES;
     }
@@ -131,14 +131,14 @@
     [self.downloadObjectes removeObjectForKey:downloadUrl];
     
     //数据库中查找
-    DTDownloadModel *model = [[DTDoownloadDBHelper sharedDB] getSelModelUrl:downloadUrl];
+    DTDownloadModel *model = [[DTDoownloadDBHelper sharedDownDB] getSelModelUrl:downloadUrl];
     if (model) {
         //移除文件
         NSFileManager *fileManager = [NSFileManager defaultManager];
         [fileManager removeItemAtPath:model.downloadSavePath error:nil];
         
         //数据库中删除
-        [[DTDoownloadDBHelper sharedDB] deleteItem:model];
+        [[DTDoownloadDBHelper sharedDownDB] deleteItem:model];
     }
     
     //

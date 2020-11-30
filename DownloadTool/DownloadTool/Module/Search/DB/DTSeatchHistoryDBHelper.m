@@ -7,22 +7,18 @@
 //
 
 #import "DTSeatchHistoryDBHelper.h"
-#import <YTKKeyValueStore/YTKKeyValueStore.h>
-#import <YYKit/YYKit.h>
+#import "DTDBManager.h"
 #import "DTCommonHelper.h"
 
-#define DBName_SearchHistory    @"SearchHistory.db"
 #define TBName_SearchHistory    @"SearchHistory_table"
 
-@interface DTSeatchHistoryDBHelper(){
-    YTKKeyValueStore *_store;
-}
+@interface DTSeatchHistoryDBHelper()
 
 @end
 
 @implementation DTSeatchHistoryDBHelper
 
-+ (instancetype)sharedDB {
++ (instancetype)sharedSearchDB {
     static DTSeatchHistoryDBHelper *db;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -33,17 +29,13 @@
 }
 
 - (void)openDB {
-    NSString *path = [NSString stringWithFormat:@"%@/%@", [DTCommonHelper hasHideDBFile], DBName_SearchHistory];
-    _store = [[YTKKeyValueStore alloc] initDBWithName:path];
-    [_store createTableWithName:TBName_SearchHistory];
+    [[DTDBManager sharedDTDB] openDBTableName:TBName_SearchHistory];
 }
 
 
 /**获取全部*/
 - (NSArray *)getAllItems{
-    NSArray *arr = [_store getAllItemsFromTable:TBName_SearchHistory];
-    NSMutableArray *tmpArr = [NSMutableArray arrayWithArray:arr];
-    NSArray *reverseArr = [[tmpArr reverseObjectEnumerator] allObjects];
+    NSArray *reverseArr = [[DTDBManager sharedDTDB] getAllItemsTableName:TBName_SearchHistory];
     
     NSMutableArray *arrM = [NSMutableArray array];
     for (YTKKeyValueItem *yyItem in reverseArr) {
@@ -56,20 +48,20 @@
 
 /**删除全部*/
 - (void)deleteAllItem{
-    [_store clearTable:TBName_SearchHistory];
+    [[DTDBManager sharedDTDB] deleteAllItemTableName:TBName_SearchHistory];
 }
 
 /**保存*/
 - (void)saveItem:(DTSeatchHistoryModel *)item{
     NSDictionary *dic = [item modelToJSONObject];
     if (dic && item.title.length > 0) {
-        [_store putObject:dic withId:item.title intoTable:TBName_SearchHistory];
+        [[DTDBManager sharedDTDB]saveItem:dic key:item.title tableName:TBName_SearchHistory];
     }
 }
 
 /**删除*/
 - (void)deleteItem:(DTSeatchHistoryModel *)item{
-    [_store deleteObjectById:item.title fromTable:TBName_SearchHistory];
+    [[DTDBManager sharedDTDB] deleteItemKey:item.title tableName:TBName_SearchHistory];
 }
 
 @end
