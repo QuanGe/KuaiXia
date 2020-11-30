@@ -41,11 +41,7 @@
         make.left.right.bottom.equalTo(self.view);
         make.height.mas_equalTo(HEIGHT_TABBAR + LL_SafeAreaBottomHeight);
     }];
-    [self.webDTView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.adressView.mas_bottom);
-        make.bottom.equalTo(self.tabView.mas_top);
-    }];
+    self.webDTView.frame = CGRectMake(0, NavigationBarHeight, SCREEN_WIDTH, SCREEN_HEIGHT- HEIGHT_TABBAR - LL_SafeAreaBottomHeight - NavigationBarHeight);
 }
 
 #pragma mark - KVO

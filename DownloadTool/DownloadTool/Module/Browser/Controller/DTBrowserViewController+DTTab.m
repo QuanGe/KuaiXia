@@ -57,11 +57,11 @@
 
 //web页截图
 - (void)tabScreenTab:(DTBrowserTabView *)tabView{
-//    [DTProgressHUDHelper show];
-//    __weak __typeof(self) weakSelf = self;
-//    [self.webDTView snapContentWithCompletion:^(UIImage * _Nonnull snapImg) {
-//        [weakSelf saveScreenImage:snapImg];
-//    }];
+    [DTProgressHUDHelper show];
+    __weak __typeof(self) weakSelf = self;
+    [self.webDTView snapContentWithCompletion:^(UIImage * _Nonnull snapImg) {
+        [weakSelf saveScreenImage:snapImg];
+    }];
 }
 
 //保存图片

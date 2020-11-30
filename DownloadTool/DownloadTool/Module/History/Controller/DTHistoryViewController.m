@@ -76,7 +76,7 @@
          // 删除的具体操作
          [self tableDeleteSelectIndex:indexPath];
      }];
-     actionDeleate.backgroundColor = [UIColor whiteColor];
+     actionDeleate.backgroundColor = [UIColor redColor];
      return @[actionDeleate];
  }
 
