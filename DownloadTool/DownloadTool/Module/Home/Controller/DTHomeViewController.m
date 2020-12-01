@@ -37,14 +37,14 @@
         make.left.top.right.equalTo(self.view);
         make.height.mas_equalTo(kSearchViewHeight);
     }];
-    [self.tipHeadView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.view);
-        make.top.equalTo(self.searchView.mas_bottom);
-        make.height.mas_equalTo(kHomeTipHeight);
-    }];
+//    [self.tipHeadView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.right.equalTo(self.view);
+//        make.top.equalTo(self.searchView.mas_bottom);
+//        make.height.mas_equalTo(kHomeTipHeight);
+//    }];
     [self.homeCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(self.view);
-        make.top.equalTo(self.tipHeadView.mas_bottom);
+        make.top.equalTo(self.searchView.mas_bottom);
     }];
 }
 
@@ -82,12 +82,12 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CGFloat width = SCREEN_WIDTH - 9;
-    return CGSizeMake(width/3, width/3);
+    CGFloat width = SCREEN_WIDTH - 10 * 3;
+    return CGSizeMake(width/2, 90);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
-    return UIEdgeInsetsMake(3, 3, 3, 3);
+    return UIEdgeInsetsMake(10, 10, 10, 10);
 }
 
 
@@ -120,7 +120,7 @@
 - (UICollectionView *)homeCollectionView{
     if (!_homeCollectionView) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.minimumLineSpacing = 2;
+        flowLayout.minimumLineSpacing = 10;
         flowLayout.minimumInteritemSpacing = 0;
         
         _homeCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];

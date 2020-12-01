@@ -26,15 +26,18 @@
 
 - (void)setCollectionViewUI{
     self.contentView.backgroundColor = [UIColor whiteColor];
+    self.contentView.layer.cornerRadius = 10;
+    self.contentView.layer.masksToBounds = YES;
     
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(self.contentView);
-        make.top.equalTo(self.contentView).offset(20);
+        make.centerY.equalTo(self.contentView);
+        make.left.equalTo(self.contentView).offset(15);
         make.width.height.mas_equalTo(40);
     }];
     [self.textTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.contentView);
-        make.top.equalTo(self.iconImageView.mas_bottom).offset(20);
+        make.left.equalTo(self.iconImageView.mas_right).offset(10);
+        make.right.equalTo(self.contentView).offset(-10);
+        make.centerY.equalTo(self.iconImageView);
     }];
 }
 
@@ -54,7 +57,7 @@
     if (!_textTitleLabel) {
         _textTitleLabel = [[UILabel alloc] init];
         _textTitleLabel.textColor = [UIColor blackColor];
-        _textTitleLabel.textAlignment = NSTextAlignmentCenter;
+        _textTitleLabel.textAlignment = NSTextAlignmentLeft;
         _textTitleLabel.font = [UIFont systemFontOfSize:15];
         _textTitleLabel.text = @"标题";
         [self.contentView addSubview:_textTitleLabel];

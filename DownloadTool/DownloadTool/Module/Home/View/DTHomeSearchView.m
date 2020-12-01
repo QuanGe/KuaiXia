@@ -29,7 +29,7 @@
 }
 
 - (void)setupViewUI{
-    self.backgroundColor = kZIColor;
+    self.backgroundColor = [UIColor whiteColor];
     [self.scanButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-20);
         make.width.height.mas_equalTo(35);
