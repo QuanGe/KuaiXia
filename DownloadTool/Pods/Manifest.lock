@@ -18,6 +18,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
+  - FSCalendar (2.8.1)
   - Masonry (1.1.0)
   - MJRefresh (3.5.0)
   - RealReachability (1.3.0):
@@ -42,6 +43,7 @@ DEPENDENCIES:
   - AFNetworking
   - FLAnimatedImage
   - FMDB
+  - FSCalendar
   - Masonry
   - MJRefresh
   - RealReachability
@@ -57,6 +59,7 @@ SPEC REPOS:
     - AFNetworking
     - FLAnimatedImage
     - FMDB
+    - FSCalendar
     - Masonry
     - MJRefresh
     - RealReachability
@@ -71,6 +74,7 @@ SPEC CHECKSUMS:
   AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   RealReachability: eae9c58d2db52fadd8e1cba4b5d4c028454fbc47
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: cda37b9879f9e58a1e1d69c1f872618af157bca0
+PODFILE CHECKSUM: b5513b8fe2c6162648c210f7823d2ed56d7715ba
 
 COCOAPODS: 1.10.0

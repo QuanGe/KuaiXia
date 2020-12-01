@@ -17,5 +17,6 @@ target 'DownloadTool' do
  pod 'YTKKeyValueStore'				      #数据库
  pod 'SSKeychain'					          #钥匙串
  pod 'SVProgressHUD'                #loading
-
+ pod 'FSCalendar'                   #日历
+ 
 end

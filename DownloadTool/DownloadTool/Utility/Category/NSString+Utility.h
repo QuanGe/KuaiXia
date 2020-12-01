@@ -12,7 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (Utility)
 
+/**url编码*/
 - (NSString *)encodeString;
+
+/**根据字符串生成条形码码*/
+- (UIImage *)loadBarCodeImg;
+
+/**根据字符串生成二维码*/
+- (UIImage *)loadQRCodeImg;
 
 @end
 

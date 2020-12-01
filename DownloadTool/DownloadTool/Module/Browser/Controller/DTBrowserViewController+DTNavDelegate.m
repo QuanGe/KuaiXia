@@ -14,8 +14,33 @@
 //MARK: - 决定是允许还是取消导航；
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
     
+    NSURLRequest *request = navigationAction.request;
     
-    decisionHandler(WKNavigationActionPolicyAllow);
+    NSURL *URL = request.URL;
+    NSString *scheme = URL.scheme.lowercaseString;
+    
+    BOOL isCancel = NO;
+    if ([scheme isEqualToString:@"about"]) {
+        if ([URL.resourceSpecifier isEqualToString:@"blank"]) {
+            isCancel = NO;
+        } else if ([URL.resourceSpecifier isEqualToString:@"back"]) {
+            isCancel = YES;
+        } else if ([URL.resourceSpecifier isEqualToString:@"reload"]) {
+            isCancel = YES;
+        }
+
+    } else if ([scheme isEqualToString:@"facetime"]) {//禁止facetime
+        isCancel = YES;
+        
+    } else if ([URL.host isEqualToString:@"itunes.apple.com"]) {
+        isCancel = YES;
+    }
+    
+    if (isCancel) {
+        decisionHandler(WKNavigationActionPolicyCancel);
+    } else {
+        decisionHandler(WKNavigationActionPolicyAllow);
+    }
 }
 
 //MARK: - 决定在知道响应后是允许还是取消导航；
