@@ -102,6 +102,8 @@
 }
 
 
+
+#pragma mark - Helper
 + (NSArray *)dt_downloadMIMETypes {
     NSArray *downloadMIMETypes = nil;
     if (!downloadMIMETypes) {

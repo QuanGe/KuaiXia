@@ -13,6 +13,7 @@
 #import "DTSearchViewController.h"
 #import "DTScanViewController.h"
 #import "DTBrowserViewController.h"
+#import "DTM3u8Handler.h"
 
 @interface DTHomeViewController () <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DTScanViewControllerDelegate>
 

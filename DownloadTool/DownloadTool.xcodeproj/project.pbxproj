@@ -929,6 +929,8 @@
 		BCCCB41D2576411600E4218D /* DTCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCCB41C2576411600E4218D /* DTCalendarViewController.m */; };
 		BCCCB4212576413D00E4218D /* DTCalendarDetailsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCCB4202576413D00E4218D /* DTCalendarDetailsModel.m */; };
 		BCCCB425257641AB00E4218D /* DTYellContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCCB424257641AB00E4218D /* DTYellContentView.m */; };
+		BCCCB43025773D8800E4218D /* DTM3u8Handler.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCCB42F25773D8800E4218D /* DTM3u8Handler.m */; };
+		BCCCB434257744AF00E4218D /* DTM3u8SementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCCCB433257744AF00E4218D /* DTM3u8SementModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1927,6 +1929,10 @@
 		BCCCB4202576413D00E4218D /* DTCalendarDetailsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTCalendarDetailsModel.m; sourceTree = "<group>"; };
 		BCCCB423257641AB00E4218D /* DTYellContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTYellContentView.h; sourceTree = "<group>"; };
 		BCCCB424257641AB00E4218D /* DTYellContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTYellContentView.m; sourceTree = "<group>"; };
+		BCCCB42E25773D8800E4218D /* DTM3u8Handler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTM3u8Handler.h; sourceTree = "<group>"; };
+		BCCCB42F25773D8800E4218D /* DTM3u8Handler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTM3u8Handler.m; sourceTree = "<group>"; };
+		BCCCB432257744AF00E4218D /* DTM3u8SementModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DTM3u8SementModel.h; sourceTree = "<group>"; };
+		BCCCB433257744AF00E4218D /* DTM3u8SementModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DTM3u8SementModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2019,6 +2025,7 @@
 		BC4360FD256C9C89006D1D83 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				BCCCB42D25773C3300E4218D /* M3u8 */,
 				BCCCAD312574F6D500E4218D /* DB */,
 				BC43625E257096E5006D1D83 /* Tab */,
 				BC43615E256CB005006D1D83 /* Download */,
@@ -3462,6 +3469,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		BCCCB42D25773C3300E4218D /* M3u8 */ = {
+			isa = PBXGroup;
+			children = (
+				BCCCB42E25773D8800E4218D /* DTM3u8Handler.h */,
+				BCCCB42F25773D8800E4218D /* DTM3u8Handler.m */,
+				BCCCB432257744AF00E4218D /* DTM3u8SementModel.h */,
+				BCCCB433257744AF00E4218D /* DTM3u8SementModel.m */,
+			);
+			path = M3u8;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -4455,7 +4473,9 @@
 				BC43616A256CCDE8006D1D83 /* DTDownloadObject.m in Sources */,
 				BC436249256FB187006D1D83 /* DTBrowserViewController+DTTab.m in Sources */,
 				BC4361C2256E21C9006D1D83 /* DTMineTableCell.m in Sources */,
+				BCCCB43025773D8800E4218D /* DTM3u8Handler.m in Sources */,
 				BC436172256CD033006D1D83 /* DTDownManager.m in Sources */,
+				BCCCB434257744AF00E4218D /* DTM3u8SementModel.m in Sources */,
 				BC43617E256CE2D0006D1D83 /* DTHTTPDownManager.m in Sources */,
 				BC4362842570CA38006D1D83 /* DTHomeCollectionCell.m in Sources */,
 				787EFD8B256E94C900C4B211 /* DTBrowserAdressView.m in Sources */,

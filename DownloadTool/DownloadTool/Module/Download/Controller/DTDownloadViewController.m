@@ -14,6 +14,8 @@
 #import "DTDownInputController.h"
 #import "DTNavigationController.h"
 #import "DTDoownloadDBHelper.h"
+#import "DTM3u8Handler.h"
+#import "DTM3u8SementModel.h"
 
 @interface DTDownloadViewController () <UITableViewDelegate, UITableViewDataSource, DTDownManagerDelegate>
 
