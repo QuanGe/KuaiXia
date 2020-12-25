@@ -35,6 +35,7 @@
 }
 
 - (void)setupViewUI{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"清空" style:UIBarButtonItemStyleDone target:self action:@selector(clickClearButton)];
     [self.listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
@@ -49,10 +50,29 @@
 }
 
 - (void)updateListData{
+    [self showMsgImgView];
+    
+    //
     NSArray *list = [[DTDoownloadDBHelper sharedDownDB] getSucessItems];
     self.listArrM = [NSMutableArray arrayWithArray:list];
     
     [self.listTableView reloadData];
+}
+
+//清空
+- (void)clickClearButton{
+    if (self.listArrM.count == 0) {
+        [DTProgressHUDHelper showMessage:@"还没有文件哦～"];
+        return;
+    }
+    
+    [DTProgressHUDHelper show];
+    for (DTDownloadModel *model in self.listArrM) {
+        [[DTDownManager shareInstance] removeDownloadFile:model.downloadUrl];
+    }
+    [DTProgressHUDHelper dissMiss];
+    //刷新
+    [self updateListData];
 }
 
 #pragma mark - UITableViewDelegate
@@ -73,6 +93,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    //选中
     [self didSelectItemModelWithModel:self.listArrM[indexPath.row]];
 }
 
@@ -87,9 +110,13 @@
     UIAlertAction *other = [UIAlertAction actionWithTitle:@"用其它应用打开" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self clickOtherButtonModel:model];
     }];
+    UIAlertAction *picture = [UIAlertAction actionWithTitle:@"保存到相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self clickPictureModel:model];
+    }];
     
     [alertVC addAction:cancel];
     [alertVC addAction:delete];
+    [alertVC addAction:picture];
     [alertVC addAction:other];
     
     [self presentViewController:alertVC animated:YES completion:nil];
@@ -111,6 +138,27 @@
     NSString *filePath = [DTCommonHelper getSaveFilepathWithUrl:model.downloadUrl];
     NSURL *fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@", filePath, model.downloadFileName]];
     [DTOpenDocumentController openFileInOtherApplication:fileURL controller:self];
+}
+
+//保存到相册
+- (void)clickPictureModel:(DTDownloadModel*)model{
+    NSString *filePath = [DTCommonHelper getSaveFilepathWithUrl:model.downloadUrl];
+    NSURL *fileURL = [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@%@", filePath, model.downloadFileName]];
+    
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([fileURL path])) {
+        [DTProgressHUDHelper show];
+        UISaveVideoAtPathToSavedPhotosAlbum([fileURL path], self, @selector(saveVideo:didFinishSavingWithError:contextInfo:), nil);
+    }
+}
+
+//保存视频完成之后的回调
+- (void)saveVideo:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error) {
+        [DTProgressHUDHelper showMessage:[NSString stringWithFormat:@"保存视频失败%@", error.localizedDescription]];
+    } else {
+        [DTProgressHUDHelper showMessage:@"保存视频成功"];
+    }
+  
 }
 
 #pragma mark - Lazy
